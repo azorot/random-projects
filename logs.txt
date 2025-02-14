@@ -1,0 +1,530 @@
+(venv) [azoroth@theRottenCore new]$ python grag.py
+2025-02-13 21:51:44,316 - matplotlib - DEBUG - wrapper:342 - matplotlib data path: /home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/matplotlib/mpl-data
+2025-02-13 21:51:44,321 - matplotlib - DEBUG - wrapper:342 - CONFIGDIR=/home/azoroth/.config/matplotlib
+2025-02-13 21:51:44,321 - matplotlib - DEBUG - <module>:1557 - interactive is False
+2025-02-13 21:51:44,322 - matplotlib - DEBUG - <module>:1558 - platform is linux
+2025-02-13 21:51:44,384 - matplotlib - DEBUG - wrapper:342 - CACHEDIR=/home/azoroth/.cache/matplotlib
+2025-02-13 21:51:44,546 - asyncio - DEBUG - __init__:64 - Using selector: EpollSelector
+2025-02-13 21:51:44,546 - root - INFO - __init__:56 - VectorStoreHandler.__init__ called
+2025-02-13 21:51:46,206 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
+2025-02-13 21:51:46,206 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-02-13 21:51:47,717 - root - INFO - async_main:14 - grag.py: initalizing stores
+2025-02-13 21:51:47,717 - root - INFO - initialize_stores:64 - VectorStoreHandler.initialize_stores called
+2025-02-13 21:51:47,717 - root - INFO - initialize_doc_vectorstore:115 - VectorStoreHandler.initialize_doc_vectorstore called
+2025-02-13 21:51:47,717 - root - INFO - initialize_doc_vectorstore:164 - Creating new vector store
+2025-02-13 21:51:47,717 - root - INFO - load_urls_from_file:279 - VectorStoreHandler.load_urls_from_file called with filename: urls.txt
+2025-02-13 21:51:47,719 - root - INFO - load_urls_from_file:284 - Raw lines in file: 140
+2025-02-13 21:51:47,719 - root - INFO - load_urls_from_file:286 - Valid URLs after filtering: 140
+2025-02-13 21:51:47,719 - root - INFO - initialize_doc_vectorstore:167 - Total URLs loaded from file: 140
+2025-02-13 21:51:47,719 - root - INFO - fetch_all_documents:201 - VectorStoreHandler.fetch_all_documents called with 140 urls
+2025-02-13 21:51:47,720 - root - INFO - fetch_all_documents:205 - Starting to fetch 140 URLs
+2025-02-13 21:51:47,720 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/welcome
+2025-02-13 21:51:47,721 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/primer/first-steps
+2025-02-13 21:51:47,721 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/primer/first-indicator
+2025-02-13 21:51:47,721 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/primer/next-steps
+2025-02-13 21:51:47,722 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/execution-model
+2025-02-13 21:51:47,722 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/time-series
+2025-02-13 21:51:47,722 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/script-structure
+2025-02-13 21:51:47,722 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/identifiers
+2025-02-13 21:51:47,723 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/operators
+2025-02-13 21:51:47,723 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/variable-declarations
+2025-02-13 21:51:47,723 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/conditional-structures
+2025-02-13 21:51:47,723 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/loops
+2025-02-13 21:51:47,724 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/type-system
+2025-02-13 21:51:47,724 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/built-ins
+2025-02-13 21:51:47,724 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/user-defined-functions
+2025-02-13 21:51:47,724 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/objects
+2025-02-13 21:51:47,724 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/enums
+2025-02-13 21:51:47,725 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/methods
+2025-02-13 21:51:47,725 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/arrays
+2025-02-13 21:51:47,725 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/matrices
+2025-02-13 21:51:47,725 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/maps
+2025-02-13 21:51:47,726 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/alerts
+2025-02-13 21:51:47,726 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/backgrounds
+2025-02-13 21:51:47,726 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/bar-coloring
+2025-02-13 21:51:47,726 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/bar-plotting
+2025-02-13 21:51:47,727 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/bar-states
+2025-02-13 21:51:47,727 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/chart-information
+2025-02-13 21:51:47,727 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/colors
+2025-02-13 21:51:47,728 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/fills
+2025-02-13 21:51:47,728 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/inputs
+2025-02-13 21:51:47,728 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/levels
+2025-02-13 21:51:47,728 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/libraries
+2025-02-13 21:51:47,729 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/lines-and-boxes
+2025-02-13 21:51:47,729 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/non-standard-charts-data
+2025-02-13 21:51:47,729 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data
+2025-02-13 21:51:47,729 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/plots
+2025-02-13 21:51:47,730 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/repainting
+2025-02-13 21:51:47,730 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/sessions
+2025-02-13 21:51:47,730 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/strategies
+2025-02-13 21:51:47,730 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/tables
+2025-02-13 21:51:47,731 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/text-and-shapes
+2025-02-13 21:51:47,731 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/time
+2025-02-13 21:51:47,731 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/timeframes
+2025-02-13 21:51:47,731 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/style-guide
+2025-02-13 21:51:47,732 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/debugging
+2025-02-13 21:51:47,732 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/profiling-and-optimization
+2025-02-13 21:51:47,732 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/publishing
+2025-02-13 21:51:47,732 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/limitations
+2025-02-13 21:51:47,732 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/general
+2025-02-13 21:51:47,733 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/alerts
+2025-02-13 21:51:47,733 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/data-structures
+2025-02-13 21:51:47,733 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/functions
+2025-02-13 21:51:47,733 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/indicators
+2025-02-13 21:51:47,734 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/other-data-and-timeframes
+2025-02-13 21:51:47,734 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/programming
+2025-02-13 21:51:47,734 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/strings-and-formatting
+2025-02-13 21:51:47,734 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/techniques
+2025-02-13 21:51:47,735 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/error-messages
+2025-02-13 21:51:47,735 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/release-notes
+2025-02-13 21:51:47,735 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-6
+2025-02-13 21:51:47,735 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-5
+2025-02-13 21:51:47,736 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-4
+2025-02-13 21:51:47,736 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-3
+2025-02-13 21:51:47,736 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/where-can-i-get-more-information
+2025-02-13 21:51:47,736 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/
+2025-02-13 21:51:47,737 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/welcome
+2025-02-13 21:51:47,737 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/primer/first-steps
+2025-02-13 21:51:47,737 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/primer/first-indicator
+2025-02-13 21:51:47,738 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/primer/next-steps
+2025-02-13 21:51:47,738 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/execution-model
+2025-02-13 21:51:47,738 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/time-series
+2025-02-13 21:51:47,738 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/script-structure
+2025-02-13 21:51:47,739 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/identifiers
+2025-02-13 21:51:47,739 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/operators
+2025-02-13 21:51:47,739 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/variable-declarations
+2025-02-13 21:51:47,739 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/conditional-structures
+2025-02-13 21:51:47,739 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/loops
+2025-02-13 21:51:47,740 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/type-system
+2025-02-13 21:51:47,740 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/built-ins
+2025-02-13 21:51:47,740 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/user-defined-functions
+2025-02-13 21:51:47,741 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/objects
+2025-02-13 21:51:47,741 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/enums
+2025-02-13 21:51:47,741 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/methods
+2025-02-13 21:51:47,741 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/arrays
+2025-02-13 21:51:47,741 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/matrices
+2025-02-13 21:51:47,742 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/language/maps
+2025-02-13 21:51:47,742 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/alerts
+2025-02-13 21:51:47,742 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/backgrounds
+2025-02-13 21:51:47,750 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/bar-coloring
+2025-02-13 21:51:47,750 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/bar-plotting
+2025-02-13 21:51:47,750 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/bar-states
+2025-02-13 21:51:47,750 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/chart-information
+2025-02-13 21:51:47,750 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/colors
+2025-02-13 21:51:47,751 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/fills
+2025-02-13 21:51:47,751 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/inputs
+2025-02-13 21:51:47,751 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/levels
+2025-02-13 21:51:47,751 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/libraries
+2025-02-13 21:51:47,751 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/lines-and-boxes
+2025-02-13 21:51:47,752 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/non-standard-charts-data
+2025-02-13 21:51:47,752 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data
+2025-02-13 21:51:47,752 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/plots
+2025-02-13 21:51:47,752 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/repainting
+2025-02-13 21:51:47,752 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/sessions
+2025-02-13 21:51:47,752 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/strategies
+2025-02-13 21:51:47,753 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/tables
+2025-02-13 21:51:47,753 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/text-and-shapes
+2025-02-13 21:51:47,753 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/time
+2025-02-13 21:51:47,753 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/concepts/timeframes
+2025-02-13 21:51:47,753 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/style-guide
+2025-02-13 21:51:47,753 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/debugging
+2025-02-13 21:51:47,754 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/profiling-and-optimization
+2025-02-13 21:51:47,754 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/publishing
+2025-02-13 21:51:47,754 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/writing/limitations
+2025-02-13 21:51:47,754 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/general
+2025-02-13 21:51:47,754 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/alerts
+2025-02-13 21:51:47,754 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/data-structures
+2025-02-13 21:51:47,755 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/functions
+2025-02-13 21:51:47,755 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/indicators
+2025-02-13 21:51:47,755 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/other-data-and-timeframes
+2025-02-13 21:51:47,755 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/programming
+2025-02-13 21:51:47,755 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/strings-and-formatting
+2025-02-13 21:51:47,755 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/faq/techniques
+2025-02-13 21:51:47,755 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/error-messages
+2025-02-13 21:51:47,756 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/release-notes
+2025-02-13 21:51:47,756 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-6
+2025-02-13 21:51:47,756 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-5
+2025-02-13 21:51:47,756 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-4
+2025-02-13 21:51:47,756 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-3
+2025-02-13 21:51:47,756 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/where-can-i-get-more-information
+2025-02-13 21:51:47,756 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs
+2025-02-13 21:51:47,757 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/welcome/#welcome-to-pine-script-v6
+2025-02-13 21:51:47,757 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/
+2025-02-13 21:51:47,757 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/scripts/
+2025-02-13 21:51:47,757 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/welcome/#requirements
+2025-02-13 21:51:47,757 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-docs/primer/first-steps
+2025-02-13 21:51:47,757 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/chat/#BfmVowG1TZkKO235
+2025-02-13 21:51:47,758 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://stackoverflow.com/questions/tagged/pine-script
+2025-02-13 21:51:47,758 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://t.me/PineCodersQA
+2025-02-13 21:51:47,758 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.reddit.com/r/TradingView/
+2025-02-13 21:51:47,758 - root - INFO - fetch_single_document:240 - VectorStoreHandler.fetch_single_document called with url: https://www.tradingview.com/pine-script-reference/v6/
+2025-02-13 21:51:48,341 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/ - Status: 200
+2025-02-13 21:51:48,443 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/programming - Status: 200
+2025-02-13 21:51:48,444 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-5 - Status: 200
+2025-02-13 21:51:48,444 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/release-notes - Status: 200
+2025-02-13 21:51:48,444 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/techniques - Status: 200
+2025-02-13 21:51:48,444 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/identifiers - Status: 200
+2025-02-13 21:51:48,449 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/where-can-i-get-more-information - Status: 200
+2025-02-13 21:51:48,449 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/script-structure - Status: 200
+2025-02-13 21:51:48,450 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-6 - Status: 200
+2025-02-13 21:51:48,450 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/primer/next-steps - Status: 200
+2025-02-13 21:51:48,450 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/strings-and-formatting - Status: 200
+2025-02-13 21:51:48,451 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-4 - Status: 200
+2025-02-13 21:51:48,451 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/error-messages - Status: 200
+2025-02-13 21:51:48,451 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/primer/first-steps - Status: 200
+2025-02-13 21:51:48,451 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-3 - Status: 200
+2025-02-13 21:51:48,451 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/primer/first-indicator - Status: 200
+2025-02-13 21:51:48,452 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/operators - Status: 200
+2025-02-13 21:51:48,469 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/time-series - Status: 200
+2025-02-13 21:51:48,469 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/execution-model - Status: 200
+2025-02-13 21:51:48,475 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/variable-declarations - Status: 200
+2025-02-13 21:51:49,190 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/functions - Status: 200
+2025-02-13 21:51:49,206 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/debugging - Status: 200
+2025-02-13 21:51:49,206 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/text-and-shapes - Status: 200
+2025-02-13 21:51:49,206 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/objects - Status: 200
+2025-02-13 21:51:49,207 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/profiling-and-optimization - Status: 200
+2025-02-13 21:51:49,207 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/timeframes - Status: 200
+2025-02-13 21:51:49,207 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/tables - Status: 200
+2025-02-13 21:51:49,207 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/alerts - Status: 200
+2025-02-13 21:51:49,207 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/type-system - Status: 200
+2025-02-13 21:51:49,207 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/methods - Status: 200
+2025-02-13 21:51:49,207 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/general - Status: 200
+2025-02-13 21:51:49,211 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/conditional-structures - Status: 200
+2025-02-13 21:51:49,211 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/primer/first-indicator - Status: 200
+2025-02-13 21:51:49,211 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/matrices - Status: 200
+2025-02-13 21:51:49,213 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/repainting - Status: 200
+2025-02-13 21:51:49,213 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/strategies - Status: 200
+2025-02-13 21:51:49,213 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/publishing - Status: 200
+2025-02-13 21:51:49,214 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/identifiers - Status: 200
+2025-02-13 21:51:49,255 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/time-series - Status: 200
+2025-02-13 21:51:49,289 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/primer/next-steps - Status: 200
+2025-02-13 21:51:49,321 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/data-structures - Status: 200
+2025-02-13 21:51:49,321 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/sessions - Status: 200
+2025-02-13 21:51:49,423 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/time - Status: 200
+2025-02-13 21:51:49,507 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/arrays - Status: 200
+2025-02-13 21:51:49,552 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/execution-model - Status: 200
+2025-02-13 21:51:49,578 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/user-defined-functions - Status: 200
+2025-02-13 21:51:49,602 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/script-structure - Status: 200
+2025-02-13 21:51:49,626 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/enums - Status: 200
+2025-02-13 21:51:49,655 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/style-guide - Status: 200
+2025-02-13 21:51:49,686 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/built-ins - Status: 200
+2025-02-13 21:51:49,711 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/welcome - Status: 200
+2025-02-13 21:51:49,727 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/loops - Status: 200
+2025-02-13 21:51:49,794 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/primer/first-steps - Status: 200
+2025-02-13 21:51:49,826 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/operators - Status: 200
+2025-02-13 21:51:49,926 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/limitations - Status: 200
+2025-02-13 21:51:50,433 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/variable-declarations - Status: 200
+2025-02-13 21:51:50,461 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/plots - Status: 200
+2025-02-13 21:51:50,542 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/welcome/#requirements - Status: 200
+2025-02-13 21:51:51,066 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/scripts/ - Status: 200
+2025-02-13 21:51:51,067 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/chat/#BfmVowG1TZkKO235 - Status: 200
+2025-02-13 21:51:51,072 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-reference/v6/ - Status: 200
+2025-02-13 21:51:51,080 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/ - Status: 200
+2025-02-13 21:51:51,233 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/welcome/#welcome-to-pine-script-v6 - Status: 200
+2025-02-13 21:51:51,281 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/primer/first-steps - Status: 200
+2025-02-13 21:51:51,384 - root - INFO - fetch_single_document:243 - Fetching https://stackoverflow.com/questions/tagged/pine-script - Status: 200
+2025-02-13 21:51:51,450 - root - INFO - fetch_single_document:243 - Fetching https://t.me/PineCodersQA - Status: 200
+2025-02-13 21:51:51,453 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/bar-plotting - Status: 200
+2025-02-13 21:51:51,474 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/objects - Status: 200
+2025-02-13 21:51:51,500 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/chart-information - Status: 200
+2025-02-13 21:51:51,527 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/levels - Status: 200
+2025-02-13 21:51:51,548 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data - Status: 200
+2025-02-13 21:51:51,548 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/bar-plotting - Status: 200
+2025-02-13 21:51:51,569 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/type-system - Status: 200
+2025-02-13 21:51:51,618 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/built-ins - Status: 200
+2025-02-13 21:51:51,646 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/methods - Status: 200
+2025-02-13 21:51:51,675 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/backgrounds - Status: 200
+2025-02-13 21:51:51,700 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/bar-coloring - Status: 200
+2025-02-13 21:51:51,722 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/fills - Status: 200
+2025-02-13 21:51:51,762 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/inputs - Status: 200
+2025-02-13 21:51:51,805 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/loops - Status: 200
+2025-02-13 21:51:51,854 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/non-standard-charts-data - Status: 200
+2025-02-13 21:51:51,875 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/maps - Status: 200
+2025-02-13 21:51:51,922 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/bar-states - Status: 200
+2025-02-13 21:51:51,943 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/colors - Status: 200
+2025-02-13 21:51:51,977 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/libraries - Status: 200
+2025-02-13 21:51:52,004 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/alerts - Status: 200
+2025-02-13 21:51:52,041 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/matrices - Status: 200
+2025-02-13 21:51:52,041 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/arrays - Status: 200
+2025-02-13 21:51:52,041 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/enums - Status: 200
+2025-02-13 21:51:52,068 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/backgrounds - Status: 200
+2025-02-13 21:51:52,255 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/where-can-i-get-more-information - Status: 200
+2025-02-13 21:51:52,275 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-3 - Status: 200
+2025-02-13 21:51:52,295 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs - Status: 200
+2025-02-13 21:51:52,311 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/error-messages - Status: 200
+2025-02-13 21:51:52,349 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/techniques - Status: 200
+2025-02-13 21:51:52,408 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/strings-and-formatting - Status: 200
+2025-02-13 21:51:52,438 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-4 - Status: 200
+2025-02-13 21:51:52,462 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-5 - Status: 200
+2025-02-13 21:51:52,511 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-6 - Status: 200
+2025-02-13 21:51:52,558 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/release-notes - Status: 200
+2025-02-13 21:51:52,651 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/chart-information - Status: 200
+2025-02-13 21:51:52,673 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/bar-states - Status: 200
+2025-02-13 21:51:52,696 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/bar-coloring - Status: 200
+2025-02-13 21:51:52,720 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/lines-and-boxes - Status: 200
+2025-02-13 21:51:52,789 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/indicators - Status: 200
+2025-02-13 21:51:52,809 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/other-data-and-timeframes - Status: 200
+2025-02-13 21:51:52,930 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/programming - Status: 200
+2025-02-13 21:51:53,372 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/conditional-structures - Status: 200
+2025-02-13 21:51:53,407 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/alerts - Status: 200
+2025-02-13 21:51:53,446 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/maps - Status: 200
+2025-02-13 21:51:53,490 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/language/user-defined-functions - Status: 200
+2025-02-13 21:51:53,531 - root - INFO - fetch_single_document:243 - Fetching https://www.reddit.com/r/TradingView/ - Status: 200
+2025-02-13 21:51:53,585 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/functions - Status: 200
+2025-02-13 21:51:53,586 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/indicators - Status: 200
+2025-02-13 21:51:53,586 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/other-data-and-timeframes - Status: 200
+2025-02-13 21:51:53,598 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/welcome - Status: 200
+2025-02-13 21:51:53,766 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/strategies - Status: 200
+2025-02-13 21:51:53,772 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/repainting - Status: 200
+2025-02-13 21:51:53,772 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/tables - Status: 200
+2025-02-13 21:51:53,772 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/inputs - Status: 200
+2025-02-13 21:51:53,773 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/timeframes - Status: 200
+2025-02-13 21:51:53,773 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/plots - Status: 200
+2025-02-13 21:51:53,774 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/style-guide - Status: 200
+2025-02-13 21:51:53,774 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/libraries - Status: 200
+2025-02-13 21:51:53,775 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/publishing - Status: 200
+2025-02-13 21:51:53,775 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/debugging - Status: 200
+2025-02-13 21:51:53,775 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/non-standard-charts-data - Status: 200
+2025-02-13 21:51:53,776 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/text-and-shapes - Status: 200
+2025-02-13 21:51:53,776 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/sessions - Status: 200
+2025-02-13 21:51:53,776 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/colors - Status: 200
+2025-02-13 21:51:53,776 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/levels - Status: 200
+2025-02-13 21:51:53,785 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/lines-and-boxes - Status: 200
+2025-02-13 21:51:53,826 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/time - Status: 200
+2025-02-13 21:51:53,870 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/fills - Status: 200
+2025-02-13 21:51:54,018 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data - Status: 200
+2025-02-13 21:51:54,019 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/profiling-and-optimization - Status: 200
+2025-02-13 21:51:54,636 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/general - Status: 200
+2025-02-13 21:51:54,656 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/writing/limitations - Status: 200
+2025-02-13 21:51:54,695 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/alerts - Status: 200
+2025-02-13 21:51:54,729 - root - INFO - fetch_single_document:243 - Fetching https://www.tradingview.com/pine-script-docs/faq/data-structures - Status: 200
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/welcome
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/primer/first-steps
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/primer/first-indicator
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/primer/next-steps
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/execution-model
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/time-series
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/script-structure
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/identifiers
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/operators
+2025-02-13 21:51:54,906 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/variable-declarations
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/conditional-structures
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/loops
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/type-system
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/built-ins
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/user-defined-functions
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/objects
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/enums
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/methods
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/arrays
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/matrices
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/maps
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/alerts
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/backgrounds
+2025-02-13 21:51:54,907 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/bar-coloring
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/bar-plotting
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/bar-states
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/chart-information
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/colors
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/fills
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/inputs
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/levels
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/libraries
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/lines-and-boxes
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/non-standard-charts-data
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/plots
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/repainting
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/sessions
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/strategies
+2025-02-13 21:51:54,908 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/tables
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/text-and-shapes
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/time
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/timeframes
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/style-guide
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/debugging
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/profiling-and-optimization
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/publishing
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/limitations
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/general
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/alerts
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/data-structures
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/functions
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/indicators
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/other-data-and-timeframes
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/programming
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/strings-and-formatting
+2025-02-13 21:51:54,909 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/techniques
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/error-messages
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/release-notes
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-6
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-5
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-4
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-3
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/where-can-i-get-more-information
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/welcome
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/primer/first-steps
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/primer/first-indicator
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/primer/next-steps
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/execution-model
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/time-series
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/script-structure
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/identifiers
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/operators
+2025-02-13 21:51:54,910 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/variable-declarations
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/conditional-structures
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/loops
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/type-system
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/built-ins
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/user-defined-functions
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/objects
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/enums
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/methods
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/arrays
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/matrices
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/language/maps
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/alerts
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/backgrounds
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/bar-coloring
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/bar-plotting
+2025-02-13 21:51:54,911 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/bar-states
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/chart-information
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/colors
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/fills
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/inputs
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/levels
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/libraries
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/lines-and-boxes
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/non-standard-charts-data
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/other-timeframes-and-data
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/plots
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/repainting
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/sessions
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/strategies
+2025-02-13 21:51:54,912 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/tables
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/text-and-shapes
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/time
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/concepts/timeframes
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/style-guide
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/debugging
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/profiling-and-optimization
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/publishing
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/writing/limitations
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/general
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/alerts
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/data-structures
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/functions
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/indicators
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/other-data-and-timeframes
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/programming
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/strings-and-formatting
+2025-02-13 21:51:54,913 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/faq/techniques
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/error-messages
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/release-notes
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-6
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-5
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-4
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/migration-guides/to-pine-version-3
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/where-can-i-get-more-information
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/welcome/#welcome-to-pine-script-v6
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/scripts/
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/welcome/#requirements
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-docs/primer/first-steps
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/chat/#BfmVowG1TZkKO235
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://stackoverflow.com/questions/tagged/pine-script
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://t.me/PineCodersQA
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.reddit.com/r/TradingView/
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:222 - Successfully processed https://www.tradingview.com/pine-script-reference/v6/
+2025-02-13 21:51:54,914 - root - INFO - fetch_all_documents:224 - Processing Summary:
+2025-02-13 21:51:54,915 - root - INFO - fetch_all_documents:225 - Total URLs: 140; Successful: 140; Failed: 0; Empty: 0
+2025-02-13 21:51:54,919 - root - INFO - initialize_doc_vectorstore:171 - Time taken to fetch documents: 7.20 seconds
+2025-02-13 21:51:54,919 - root - INFO - initialize_doc_vectorstore:172 - Successfully fetched 140 documents
+2025-02-13 21:51:55,077 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-02-13 21:51:55,233 - chromadb.config - DEBUG - start:337 - Starting component System
+2025-02-13 21:51:55,233 - chromadb.config - DEBUG - start:337 - Starting component Posthog
+2025-02-13 21:51:55,233 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
+2025-02-13 21:51:55,233 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
+2025-02-13 21:51:55,716 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
+2025-02-13 21:51:55,717 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
+2025-02-13 21:51:55,717 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
+2025-02-13 21:51:55,717 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
+2025-02-13 21:51:55,718 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
+2025-02-13 21:55:13,319 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
+2025-02-13 21:55:19,737 - root - ERROR - initialize_doc_vectorstore:197 - Error creating new vectorstore: ProcessingMetrics() takes no arguments
+2025-02-13 21:55:19,743 - root - INFO - initialize_stores:67 - doc_vectorstore successfully initalzied
+2025-02-13 21:55:19,743 - root - INFO - initialize_code_vectorstore:81 - VectorStoreHandler.initialize_code_vectorstore called
+2025-02-13 21:55:19,743 - root - INFO - initialize_code_vectorstore:104 - Creating new code vector store
+2025-02-13 21:55:19,744 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-02-13 21:55:19,746 - chromadb.config - DEBUG - start:337 - Starting component System
+2025-02-13 21:55:19,746 - chromadb.config - DEBUG - start:337 - Starting component Posthog
+2025-02-13 21:55:19,746 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
+2025-02-13 21:55:19,746 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
+2025-02-13 21:55:20,232 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
+2025-02-13 21:55:20,232 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
+2025-02-13 21:55:20,233 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
+2025-02-13 21:55:20,233 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
+2025-02-13 21:55:20,233 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
+2025-02-13 21:55:20,263 - root - INFO - initialize_code_vectorstore:111 - Created new code vector store
+2025-02-13 21:55:20,264 - root - INFO - initialize_stores:69 - code_vectorestore successfully intialized
+2025-02-13 21:55:20,264 - root - ERROR - initialize_stores:74 - One or both vector stores failed to initialize.
+2025-02-13 21:55:20,264 - root - INFO - __init__:41 - EnhancedStrategyTester.__init__ called
+2025-02-13 21:55:20,265 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
+2025-02-13 21:55:20,265 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+Type of initial_batch_number: <class 'int'>, Value: 1
+/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/components/chatbot.py:282: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, but this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
+  warnings.warn(
+* Running on local URL:  http://0.0.0.0:8000
+
+To create a public link, set `share=True` in `launch()`.
+2025-02-13 21:55:43,021 - matplotlib.pyplot - DEBUG - switch_backend:497 - Loaded backend agg version v2.2.
+2025-02-13 21:55:43,022 - root - INFO - initialize_rl_agent:30 - Initializing RL Agent with model: model='qwen2.5-coder:0.5b' base_url='http://127.0.0.1:11434', state_dim: 384, action_dim: 2, learning_rate: 0.001, batch_number: 1
+2025-02-13 21:55:43,022 - root - INFO - __init__:232 - RLAgent.__init__ called
+2025-02-13 21:55:43,022 - root - INFO - __init__:132 - PPOAlgorithm.__init__ called
+2025-02-13 21:55:43,022 - root - INFO - __init__:68 - ActorNetwork.__init__ called
+2025-02-13 21:55:43,024 - root - INFO - __init__:101 - CriticNetwork.__init__ called
+2025-02-13 21:55:43,026 - root - INFO - __init__:31 - PPOMemory.__init__ called
+2025-02-13 21:55:51,564 - root - INFO - sync_load_urls:163 - Button 'Load URLs from File' clicked! Calling sync_load_urls
+2025-02-13 21:55:51,565 - root - INFO - load_urls_from_file:279 - VectorStoreHandler.load_urls_from_file called with filename: urls.txt
+2025-02-13 21:55:51,580 - root - INFO - load_urls_from_file:284 - Raw lines in file: 140
+2025-02-13 21:55:51,580 - root - INFO - load_urls_from_file:286 - Valid URLs after filtering: 140
+2025-02-13 21:56:19,672 - root - INFO - sync_process_input:148 - Button 'Submit' clicked! Calling sync_process_input with question: create a pinescript v6 strategy using ta.rsi to define entry and exits
+2025-02-13 21:56:19,672 - root - INFO - sync_process_input:149 - sync_process_input - Input q type: <class 'str'>
+2025-02-13 21:56:19,673 - root - INFO - process_input:34 - process_input called with question: create a pinescript v6 strategy using ta.rsi to define entry and exits
+2025-02-13 21:56:19,673 - root - INFO - process_input:35 - process_input - Input question type: <class 'str'>
+2025-02-13 21:56:19,673 - root - INFO - ensure_stores_initialized:363 - VectorStoreHandler.ensure_stores_initialized called
+2025-02-13 21:56:19,674 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
+2025-02-13 21:56:19,674 - root - INFO - initialize_stores:64 - VectorStoreHandler.initialize_stores called
+2025-02-13 21:56:19,674 - root - INFO - initialize_doc_vectorstore:115 - VectorStoreHandler.initialize_doc_vectorstore called
+2025-02-13 21:56:19,681 - chromadb.api.segment - DEBUG - create_collection:259 - Collection rag-chroma already exists, returning existing collection.
+2025-02-13 21:56:19,681 - root - INFO - initialize_doc_vectorstore:123 - Successfully loaded existing documentation vector store
+2025-02-13 21:56:19,681 - root - INFO - initialize_stores:67 - doc_vectorstore successfully initalzied
+2025-02-13 21:56:19,682 - root - INFO - initialize_code_vectorstore:81 - VectorStoreHandler.initialize_code_vectorstore called
+2025-02-13 21:56:19,687 - chromadb.api.segment - DEBUG - create_collection:259 - Collection generated-code already exists, returning existing collection.
+2025-02-13 21:56:19,688 - root - INFO - initialize_code_vectorstore:89 - Successfully loaded existing code vector store
+2025-02-13 21:56:19,688 - root - INFO - initialize_stores:69 - code_vectorestore successfully intialized
+2025-02-13 21:56:19,688 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
+/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py:49: LangChainDeprecationWarning: The method `BaseRetriever.aget_relevant_documents` was deprecated in langchain-core 0.1.46 and will be removed in 1.0. Use :meth:`~ainvoke` instead.
+  docs = await doc_retriever.aget_relevant_documents(question, k=5)
+2025-02-13 21:56:19,713 - root - INFO - generate_code:315 - RLAgent.generate_code called
+2025-02-13 21:56:19,713 - root - INFO - get_state:288 - RLAgent.get_state called
+2025-02-13 21:56:19,713 - root - INFO - get_state:289 - get_state - START: Query: create a pinescript v6 strategy using ta.rsi to define entry and exits
+2025-02-13 21:56:19,713 - root - INFO - embed_query:275 - RLAgent.embed_query called
+2025-02-13 21:56:19,751 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
+2025-02-13 21:56:19,757 - root - INFO - get_state:311 - get_state - END: State: {'query': 'create a pinescript v6 strategy using ta.rsi to define entry and exits', 'query_embedding': [0.007659498136490583, -0.036419786512851715, -0.02629970572888851, 0.012271487154066563, -0.025978239253163338, 0.01945294812321663, -0.023614192381501198, -0.002914569340646267, -0.03714141249656677, 0.015078580006957054, -0.021808279678225517, 0.028720567002892494, -0.002106195315718651, 0.03592776507139206, 0.011223253794014454, -0.0018865700112655759, -0.05119939520955086, -0.056060727685689926, 0.0700935572385788, 0.016755718737840652, 0.07750963419675827, 0.03410085290670395, 0.029100526124238968, -0.003661392955109477, -0.055433016270399094, -0.06723903864622116, -0.006441199686378241, 0.024124834686517715, 0.040285009890794754, 0.0301822479814291, 0.11026684939861298, 0.011871674098074436, -0.03554130345582962, -0.01719510182738304, 0.0007120402879081666, 0.07052667438983917, -0.039047371596097946, -0.055823151022195816, 0.06830304116010666, 0.003618959803134203, 0.02679322473704815, -0.010017459280788898, -0.05510963499546051, -0.02019127830862999, 0.10494671761989594, -0.030667124316096306, -0.08451498299837112, -0.0076509336940944195, 0.03500175103545189, -0.05034821107983589, -0.0638931542634964, -0.006329407915472984, 0.019554756581783295, -0.0014822551747784019, 0.025822388008236885, -0.017935965210199356, 0.003865225473418832, -0.1537146270275116, -0.0012360181426629424, -0.11190225929021835, 0.0630645602941513, -0.002181196818128228, -0.0031635817140340805, -0.07413986325263977, 0.04304554685950279, 0.0864061713218689, -0.05108979716897011, 0.09298840165138245, 0.0870816707611084, 0.04843830317258835, -0.05235406383872032, -0.005489697214215994, -0.0633494108915329, 0.013720517978072166, -0.048144202679395676, 0.00022486237867269665, -0.012160510756075382, 0.016984088346362114, -0.008284230716526508, -0.09684507548809052, -0.05825890228152275, -0.014915541745722294, -0.07170019298791885, 0.058726415038108826, 0.01803419552743435, 0.06637432426214218, 0.06256095319986343, -0.01776377484202385, 0.10894140601158142, 0.048917531967163086, 0.033123359084129333, 0.015542363747954369, 0.04519391432404518, -0.040073249489068985, 0.06414022296667099, -0.0013743225717917085, -0.05534254014492035, -0.03183913230895996, 0.017185958102345467, -0.029168620705604553, -0.027301225811243057, 0.030590077862143517, -0.06509976834058762, -0.08765522390604019, 0.0011566962348297238, 0.007282680366188288, -0.05201349034905434, -0.048210132867097855, 0.020098157227039337, -0.04291430860757828, -0.012292534112930298, 0.04805166646838188, 0.03215094283223152, 0.03902008756995201, 0.023022640496492386, 0.10342558473348618, -0.02950465865433216, 0.06769292056560516, 0.0861261636018753, 0.08913324773311615, 0.003634535474702716, 0.008295808918774128, -0.061808861792087555, 0.11721393465995789, 0.021812817081809044, -0.02533012069761753, 0.0030607390217483044, -2.412005674659883e-33, -0.017659848555922508, 0.03975335881114006, -0.05634584277868271, 0.044155992567539215, -0.00784623995423317, 0.017799239605665207, -0.07428853958845139, -0.08083182573318481, -0.058478280901908875, 0.05216827988624573, -0.05610531195998192, -0.014600489288568497, -0.045873332768678665, -0.020300565287470818, 0.10611692070960999, -0.051129404455423355, 0.017797043547034264, 0.06188598647713661, 0.05699943006038666, -0.06522226333618164, 0.009684000164270401, 0.032671038061380386, -0.03859188035130501, -0.0448647141456604, 0.0267463531345129, 0.08835925906896591, -0.01557911466807127, -0.03661665320396423, -0.03428422287106514, 0.017817212268710136, 0.05340861529111862, 0.012041031382977962, -0.07733982056379318, 0.038265615701675415, 0.06059437617659569, -0.05106772109866142, -0.0070738657377660275, -0.00027591429534368217, -0.03187969699501991, 0.0015697396593168378, -0.010118610225617886, -0.0074103763327002525, -0.08925062417984009, 0.10196945071220398, -0.008744719438254833, -0.089451864361763, 0.03757873922586441, 0.021134091541171074, 0.05338474363088608, 0.048568155616521835, -0.02890612557530403, 0.012532802298665047, 0.04831356182694435, -0.11472515761852264, -0.006407484412193298, -0.12042265385389328, -0.025467239320278168, 0.015755366533994675, 0.029083507135510445, 0.004461698234081268, -0.0044373101554811, -0.017727412283420563, -0.03893866017460823, 0.05995453521609306, -0.022050980478525162, -0.030418282374739647, -0.007826676592230797, -0.13886640965938568, 0.025069061666727066, 0.01600833050906658, -0.032498668879270554, -0.029459848999977112, -0.024029213935136795, -0.004614240489900112, 0.01726929470896721, -0.00907035544514656, -0.016156524419784546, 0.03446214646100998, 0.03271513432264328, -0.07601549476385117, -0.012756966054439545, 0.09247094392776489, -0.06278923153877258, -0.004311533644795418, 0.20030595362186432, 0.017816808074712753, 0.03921974077820778, -0.09128619730472565, -0.055284567177295685, -0.00039425239083357155, 0.006016491912305355, -0.018071433529257774, -0.041406601667404175, 0.014203496277332306, 0.073333241045475, 8.635180582785562e-34, 0.07044362276792526, -0.008082478307187557, 0.056310124695301056, -0.0781819149851799, -0.11858682334423065, -0.037482719868421555, 0.006222337018698454, -0.01866641640663147, 0.08052103966474533, 0.06289969384670258, 0.008834200911223888, -0.03500593826174736, 0.048612941056489944, -0.007572276517748833, 0.014562766067683697, -0.025226334109902382, 0.030955417081713676, 0.004563027061522007, 0.005782644264400005, 0.013422874733805656, 0.0268873181194067, 0.019040970131754875, -0.08186271786689758, 0.08700196444988251, 0.057275425642728806, 0.09081210196018219, 0.040569499135017395, 0.09046652168035507, -0.09923899173736572, -0.13090187311172485, -0.015697039663791656, -0.07780830562114716, -0.002833921229466796, 0.0031596424523741007, -0.052741117775440216, 0.016009647399187088, 0.05484974384307861, -0.020437082275748253, 0.0041121309623122215, 0.09094996005296707, 0.0310195442289114, 0.04207382723689079, -0.006497399881482124, 0.042374856770038605, -0.06074445694684982, -0.055014315992593765, -0.015352729707956314, 0.04600931704044342, -0.03369707614183426, -0.008283933624625206, 0.015879586338996887, -0.05741927772760391, 0.018834469839930534, -0.047163188457489014, -0.012245786376297474, -0.03826224431395531, 0.058590587228536606, -0.005098056513816118, -0.009180990047752857, -0.02624030038714409, 0.08245852589607239, 0.001562465913593769, 0.07014033943414688, 0.018283363431692123, -0.0039549716748297215, -0.10663016885519028, 0.006850856821984053, -0.04494701698422432, 0.014846960082650185, -0.09955382347106934, 0.06087657809257507, 0.03103148750960827, 0.00508294440805912, -0.02657954767346382, 0.024546965956687927, -0.0030777687206864357, -0.03163203224539757, -0.04922313988208771, -0.001451921067200601, 0.024082018062472343, -0.11721997708082199, 0.08265647292137146, 0.020107043907046318, 0.0947013795375824, 0.005830452777445316, 0.058799635618925095, 0.019443990662693977, 0.053723420947790146, 0.046565521508455276, -0.008969184011220932, -0.002677638316527009, 0.05056237056851387, 0.11469154804944992, 0.07696428894996643, -0.006224948912858963, -1.690785289554242e-08, -0.02479557693004608, -0.023006029427051544, -0.042100805789232254, 0.04057527333498001, 0.01498172152787447, -0.00906383153051138, -0.040403179824352264, -0.027198009192943573, -0.05406885966658592, -0.049834784120321274, 0.07098638266324997, 0.033506128937006, -0.0013529168209061027, 0.014119879342615604, -0.038564153015613556, -0.029463794082403183, -0.016672441735863686, -0.01560125220566988, -0.05129510909318924, 0.020886356011033058, 0.09618876874446869, -0.011174295097589493, -0.005028767045587301, 0.08885475993156433, 0.026518037542700768, -0.031409867107868195, -0.005364494398236275, -0.017354076728224754, 0.011976826936006546, -0.010910705663263798, 0.08167976886034012, -0.00660788593813777, 0.06996137648820877, 0.1405683308839798, -0.07513241469860077, 0.08553977310657501, 0.057286083698272705, 0.062468212097883224, 0.03602828457951546, 0.0255812369287014, 0.015334672294557095, -0.059199415147304535, -0.12033268809318542, -0.011654709465801716, -0.04707837477326393, 0.008439650759100914, -0.02993612177670002, -0.01933661848306656, 0.023345135152339935, -0.03347985818982124, -0.0030770967714488506, -0.035827312618494034, -0.045097894966602325, 0.06684040278196335, 0.019982725381851196, -0.06814014911651611, -0.01395520567893982, -0.027493489906191826, -0.009812765754759312, -0.004830582533031702, 0.032419353723526, -0.030813900753855705, -0.07308652997016907, -0.05327574163675308], 'code_context': '', 'num_retrieved_codes': 0}
+2025-02-13 21:56:19,757 - root - INFO - choose_action:333 - RLAgent.choose_action called
+2025-02-13 21:56:19,757 - root - INFO - choose_action:160 - PPOAlgorithm.choose_action called
+2025-02-13 21:56:19,758 - root - INFO - forward:85 - ActorNetwork.forward called
+2025-02-13 21:56:19,759 - root - INFO - forward:117 - CriticNetwork.forward called
+2025-02-13 21:56:19,762 - root - INFO - generate_code:318 - Chosen action: 0, Probability: -0.672370195388794, Value: 0.012697160243988037
+2025-02-13 21:56:19,762 - root - ERROR - process_input:56 - Error generating code with RL agent: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
+Traceback (most recent call last):
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 52, in process_input
+    generated_code = await self.rl_agent.generate_code(question)  # Use RL agent
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 320, in generate_code
+    context = await self.vector_store.get_relevant_documents(question)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
