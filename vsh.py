@@ -112,6 +112,120 @@ class VectorStoreHandler:
             logger.info("Created new code vector store")
             return code_vectorstore
 
+import os
+import time
+import asyncio
+import aiohttp
+import aiofiles
+from dataclasses import dataclass
+from typing import List, Set, Optional
+from bs4 import BeautifulSoup
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.documents import Document
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from prometheus_client import Counter, Histogram
+from logger_all import logger_all
+from selenium_handler2 import EnhancedStrategyTester, TimeframeMetrics
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+logger = logger_all.logger
+
+url_fetch_duration = Histogram('url_fetch_duration_seconds', 'Time spent fetching URLs')
+docs_processed = Counter('docs_processed_total', 'Number of documents processed')
+vectorstore_ops = Counter('vectorstore_operations_total', 'Vector store operations', ['operation_type'])
+
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+
+class ProcessingMetrics:
+    urls_processed: int
+    chunks_created: int
+    embedding_time: float
+
+class CustomWebBaseLoader:
+    def __init__(self, url: str, headers: Optional[dict] = None):
+        logging.info("CustomWebBaseLoader.__init__ called")
+        self.url = url
+        self.headers = headers or {"User-Agent": USER_AGENT}
+
+    async def async_load(self) -> List[Document]:
+        logging.info(f"CustomWebBaseLoader.async_load called with url: {self.url}")
+        try:
+            logger.info(f"Fetching URL: {self.url}")
+            async with aiohttp.ClientSession() as session:
+                async with session.get(self.url, headers=self.headers) as response:
+                    text = await response.text()
+                    soup = BeautifulSoup(text, "html.parser")
+                    logger.info(f"Successfully fetched and parsed URL: {self.url}")
+                    return [Document(page_content=soup.get_text(), metadata={"source": self.url})]
+        except Exception as e:
+            logger.error(f"Error fetching {self.url}: {e}")
+            return []
+
+class VectorStoreHandler:
+    def __init__(self):
+        logging.info("VectorStoreHandler.__init__ called")
+        self.doc_vectorstore = None
+        self.code_vectorstore = None
+        self.doc_retriever = None
+        self.ingested_urls: Set[str] = set()
+        self.embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        self._stores_initialized = asyncio.Event()
+
+    async def initialize_stores(self):
+        logging.info("VectorStoreHandler.initialize_stores called")
+        try:
+            self.doc_vectorstore = await self.initialize_doc_vectorstore()
+            logger.info("doc_vectorstore successfully initalzied")
+            self.code_vectorstore = await self.initialize_code_vectorstore()
+            logger.info("code_vectorestore successfully intialized")
+
+            if self.doc_vectorstore and self.code_vectorstore:
+                self._stores_initialized.set()
+            else:
+                logger.error("One or both vector stores failed to initialize.")
+                self._stores_initialized.set()
+        except Exception as e:
+            logger.error(f"Error initializing stores: {e}", exc_info=True)
+            self._stores_initialized.set()
+
+    async def initialize_code_vectorstore(self):
+        logging.info("VectorStoreHandler.initialize_code_vectorstore called")
+        if os.path.exists("code_vectorstore"):
+            try:
+                code_vectorstore = Chroma(
+                    persist_directory="code_vectorstore",
+                    embedding_function=self.embedding_model,
+                    collection_name="generated-code"
+                )
+                logger.info("Successfully loaded existing code vector store")
+                vectorstore_ops.labels(operation_type='load_existing_code').inc()
+                return code_vectorstore
+            except Exception as e:
+                logger.error(f"Error loading code vectorstore: {e}")
+                logger.info("Creating new code vector store")
+                code_vectorstore = Chroma(
+                    persist_directory="code_vectorstore",
+                    embedding_function=self.embedding_model,
+                    collection_name="generated-code"
+                )
+                vectorstore_ops.labels(operation_type='create_new_code').inc()
+                logger.info("Created new code vector store")
+                return code_vectorstore
+        else:
+            logger.info("Creating new code vector store")
+            code_vectorstore = Chroma(
+                persist_directory="code_vectorstore",
+                embedding_function=self.embedding_model,
+                collection_name="generated-code"
+            )
+            vectorstore_ops.labels(operation_type='create_new_code').inc()
+            logger.info("Created new code vector store")
+            return code_vectorstore
+
     async def initialize_doc_vectorstore(self):
         logging.info("VectorStoreHandler.initialize_doc_vectorstore called")
         if os.path.exists("doc_vectorstore"):
@@ -146,7 +260,6 @@ class VectorStoreHandler:
                     doc_splits = text_splitter.split_documents(docs_list)
                     vectorstore = Chroma.from_documents(
                         documents=doc_splits,
-                        documents=doc_splits,
                         collection_name="rag-chroma",
                         embedding=self.embedding_model,
                         persist_directory="doc_vectorstore"
@@ -164,44 +277,6 @@ class VectorStoreHandler:
                 except Exception as e:
                     logger.error(f"Error creating new vectorstore: {e}")
                     return None
-        else:
-            logger.info("Creating new vector store")
-            try:
-                urls = await self.load_urls_from_file("urls.txt")
-                logger.info(f"Total URLs loaded from file: {len(urls)}")
-                start_time = time.time()
-                docs_list = await self.fetch_all_documents(urls)
-                fetch_elapsed = time.time() - start_time
-                logger.info(f"Time taken to fetch documents: {fetch_elapsed:.2f} seconds")
-                logger.info(f"Successfully fetched {len(docs_list)} documents")
-                url_fetch_duration.observe(fetch_elapsed)
-
-                if not docs_list:
-                    logger.info("No documents loaded from URLs")
-                    return None
-
-                text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-                doc_splits = text_splitter.split_documents(docs_list)
-                vectorstore = Chroma.from_documents(
-                    documents=doc_splits,
-                    documents=doc_splits,
-                    collection_name="rag-chroma",
-                    embedding=self.embedding_model,
-                    persist_directory="doc_vectorstore"
-                )
-                self.doc_retriever = vectorstore.as_retriever()
-                docs_processed.inc(len(docs_list))
-                vectorstore_ops.labels(operation_type='create_new_doc').inc()
-                metrics = ProcessingMetrics(
-                    urls_processed=len(urls),
-                    chunks_created=len(doc_splits),
-                    embedding_time=time.time()
-                )
-                logger.info(f"Vector store metrics: {metrics}")
-                return vectorstore
-            except Exception as e:
-                logger.error(f"Error creating new vectorstore: {e}")
-                return None
 
     async def get_relevant_documents(self, query: str):
         if self.doc_retriever:
@@ -209,8 +284,6 @@ class VectorStoreHandler:
             return "\n".join([doc.page_content for doc in docs])
         else:
             return ""
-
-
 
     async def fetch_all_documents(self, urls: List[str]) -> List[Document]:
         logging.info(f"VectorStoreHandler.fetch_all_documents called with {len(urls)} urls")
