@@ -337,8 +337,6 @@ Query: {question} (Question: {question} - Carefully analyze the provided documen
             self.remember(state["query_embedding"], action, prob, value, reward)  # Store experience
             return generated_code
 
-
-
     def choose_action(self, state):
         logging.info("RLAgent.choose_action called")
         return self.rl_algorithm.choose_action(state)

@@ -345,23 +345,128 @@ class EnhancedStrategyTester:
             logger.error(f"Error extracting error details: {e}", exc_info=True)
             return ["Error extracting error details."]
 
-    async def paste_code(self, driver, code):
-        logging.info("EnhancedStrategyTester.paste_code called")
-        try:
-            # Locate the Pine Editor
-            pine_editor = WebDriverWait(driver, 60).until( # Increased WebDriverWait timeout
-                EC.element_to_be_clickable((By.XPATH, "//div[@class=' InnerWrap-jWJyA1hM']//div[@class='view-line']"))
-            )
-            # Click to focus the editor
-            pine_editor.click()
-            actions = ActionChains(driver)
-            actions.key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL).send_keys(Keys.DELETE).perform()
-            actions.send_keys(code).perform()
+    def _wait_for_spinner_gone(self, driver: webdriver.Firefox, timeout=30, check_interval=0.5, recheck_attempts=5):
+            """Waits for the TradingView spinner to be reliably gone."""
+            wait = WebDriverWait(driver, timeout)
+            spinner_locator = (By.CLASS_NAME, "tv-spinner--shown")
 
-            logger.info("Code pasted into Pine Editor.")
+            try:
+                wait.until(EC.invisibility_of_element_located(spinner_locator))
+                logger.info("Initial spinner invisibility detected.")
+
+                for attempt in range(recheck_attempts):
+                    time.sleep(check_interval)
+                    try:
+                        # Check if spinner is still NOT present (raises TimeoutException if still visible)
+                        wait.until(EC.invisibility_of_element_located(spinner_locator), message="Spinner re-appeared")
+                        logger.info(f"Spinner re-invisibility confirmed on attempt {attempt + 1}/{recheck_attempts}.")
+                    except TimeoutException:
+                        logger.warning("Spinner re-appeared briefly!")
+                        return False # Spinner re-appeared, pasting might be unstable
+
+                logger.info("Spinner is reliably gone after re-checks.")
+                return True # Spinner seems reliably gone
+
+            except TimeoutException:
+                logger.warning("Timeout waiting for initial spinner invisibility.")
+                return False # Timed out waiting for spinner to disappear initially
+
+
+    async def paste_code(self, driver: webdriver.Firefox, code: str) -> bool:
+        try:
+            await asyncio.to_thread(self._paste_code, driver, code)
+            logger.info("Successfully pasted code into Pine Editor")
+            return True
         except Exception as e:
-            logger.error(f"Error pasting code: {e}", exc_info=True)
-            raise
+            logger.error(f"Error pasting code: {e}")
+            return False # Indicate paste failure
+
+
+    def _paste_code(self, driver: webdriver.Firefox, code: str):
+        try:
+            code = '\n'.join([line.strip() for line in code.splitlines()])
+
+            if not self._wait_for_spinner_gone(driver): # Use robust spinner wait
+                logger.error("Spinner did not reliably disappear. Aborting paste.")
+                return False # Abort pasting if spinner is unstable
+
+            logger.info("Spinner is reliably gone.")
+            """Pastes code into Pine Editor using JavaScript 'paste' event simulation, with robust spinner wait."""
+            wait = WebDriverWait(driver, 30)
+            editor_locator = (By.CSS_SELECTOR, '.monaco-editor textarea.inputarea.monaco-mouse-cursor-text')
+
+            editor_element = wait.until(EC.presence_of_element_located(editor_locator))
+            logger.info("Attempting to clear existing text in Pine Editor using ActionChains (Ctrl+A + Delete)...")
+
+            # Robust Scroll into View (with retry - as before)
+            try:
+                driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'center'});", editor_element)
+                time.sleep(0.5)
+            except Exception as scroll_err:
+                logger.warning(f"Initial scrollIntoView failed, retrying: {scroll_err}")
+                time.sleep(1)
+                driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'center'});", editor_element)
+                time.sleep(0.5)
+            logger.info("Editor element scrolled into view.")
+
+
+            # Robust Clear with ActionChains (Ctrl+A + Delete) (with wait - as before)
+            actions = ActionChains(driver).click(editor_element)
+            actions.key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL).perform()
+            time.sleep(0.5) # Wait after Ctrl+A
+            actions = ActionChains(driver).send_keys(Keys.DELETE)
+            actions.perform()
+            logger.info("Pine Editor cleared via ActionChains (Ctrl+A + Delete).")
+
+
+
+            logger.info("Pasting code into Pine Editor using JavaScript 'paste' event simulation...")
+            editor_element = wait.until(EC.presence_of_element_located(editor_locator))
+
+            driver.execute_script("arguments[0].focus();", editor_element)
+            time.sleep(0.5)
+
+            code_lines = code.splitlines()
+            code_with_newlines = '\\n'.join(code_lines)
+
+            # 1. Dispatch 'paste' event
+            driver.execute_script("""
+                var textarea = arguments[0];
+                var pasteEvent = new ClipboardEvent('paste', {
+                    clipboardData: new DataTransfer(),
+                    bubbles: true,
+                    cancelable: true,
+                    composed: true
+                });
+                pasteEvent.clipboardData.setData('text/plain', arguments[1]);
+                textarea.dispatchEvent(pasteEvent);
+            """, editor_element, code)
+            logger.info("Dispatched 'paste' event to Monaco Editor.");
+
+
+            # 2. Set the value directly
+            js_code_paste = f"arguments[0].value='{code_with_newlines}';"
+            driver.execute_script(js_code_paste, editor_element)
+            logger.info("Code set via JavaScript value.");
+
+
+            # 3. Force 'input' and 'change' events
+            driver.execute_script("""
+                var textarea = arguments[0];
+                textarea.dispatchEvent(new Event('input', { bubbles: true, composed: true }));
+                textarea.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+            """, editor_element)
+            logger.info("Dispatched 'input' and 'change' events to Monaco Editor.");
+
+            time.sleep(1)
+            actions = ActionChains(driver) # Keep Ctrl+Enter for submission
+            actions.key_down(Keys.CONTROL).send_keys(Keys.ENTER).key_up(Keys.CONTROL).perform()
+            logger.info("Pressed Ctrl + Enter to add the code to the chart.")
+            return True # Indicate paste success
+
+        except Exception as e:
+            logger.error(f"Error in _paste_code: {e}")
+            return False # Indicate paste failure
 
     async def check_strategy_added(self, driver):
         logging.info("EnhancedStrategyTester.check_strategy_added called")
