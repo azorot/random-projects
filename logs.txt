@@ -1,193 +1,341 @@
-(venv) [azoroth@theRottenCore new]$ python grag.py
-2025-02-13 22:34:18,707 - matplotlib - DEBUG - wrapper:342 - matplotlib data path: /home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/matplotlib/mpl-data
-2025-02-13 22:34:18,715 - matplotlib - DEBUG - wrapper:342 - CONFIGDIR=/home/azoroth/.config/matplotlib
-2025-02-13 22:34:18,717 - matplotlib - DEBUG - <module>:1557 - interactive is False
-2025-02-13 22:34:18,719 - matplotlib - DEBUG - <module>:1558 - platform is linux
-2025-02-13 22:34:18,832 - matplotlib - DEBUG - wrapper:342 - CACHEDIR=/home/azoroth/.cache/matplotlib
-2025-02-13 22:34:19,164 - asyncio - DEBUG - __init__:64 - Using selector: EpollSelector
-2025-02-13 22:34:19,165 - root - INFO - __init__:56 - VectorStoreHandler.__init__ called
-2025-02-13 22:34:22,604 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
-2025-02-13 22:34:22,604 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
-2025-02-13 22:34:24,294 - root - INFO - async_main:14 - grag.py: initalizing stores
-2025-02-13 22:34:24,295 - root - INFO - initialize_stores:64 - VectorStoreHandler.initialize_stores called
-2025-02-13 22:34:24,295 - root - INFO - initialize_doc_vectorstore:115 - VectorStoreHandler.initialize_doc_vectorstore called
-2025-02-13 22:34:24,320 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component System
-2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component Posthog
-2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
-2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
-2025-02-13 22:34:24,916 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
-2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
-2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
-2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
-2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
-2025-02-13 22:34:24,921 - chromadb.api.segment - DEBUG - create_collection:259 - Collection rag-chroma already exists, returning existing collection.
-2025-02-13 22:34:24,922 - root - INFO - initialize_doc_vectorstore:123 - Successfully loaded existing documentation vector store
-2025-02-13 22:34:24,922 - root - INFO - initialize_stores:67 - doc_vectorstore successfully initalzied
-2025-02-13 22:34:24,922 - root - INFO - initialize_code_vectorstore:81 - VectorStoreHandler.initialize_code_vectorstore called
-2025-02-13 22:34:24,923 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2025-02-13 22:34:24,924 - chromadb.config - DEBUG - start:337 - Starting component System
-2025-02-13 22:34:24,925 - chromadb.config - DEBUG - start:337 - Starting component Posthog
-2025-02-13 22:34:24,925 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
-2025-02-13 22:34:24,925 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
-2025-02-13 22:34:24,927 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
-2025-02-13 22:34:24,927 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
-2025-02-13 22:34:24,928 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
-2025-02-13 22:34:24,928 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
-2025-02-13 22:34:24,928 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
-2025-02-13 22:34:24,931 - chromadb.api.segment - DEBUG - create_collection:259 - Collection generated-code already exists, returning existing collection.
-2025-02-13 22:34:24,932 - root - INFO - initialize_code_vectorstore:89 - Successfully loaded existing code vector store
-2025-02-13 22:34:24,932 - root - INFO - initialize_stores:69 - code_vectorestore successfully intialized
-2025-02-13 22:34:24,932 - root - INFO - __init__:41 - EnhancedStrategyTester.__init__ called
-2025-02-13 22:34:24,933 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
-2025-02-13 22:34:24,933 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-02-14 00:17:19,351 - root - INFO - fetch_all_documents:174 - Processing Summary:
+2025-02-14 00:17:19,351 - root - INFO - fetch_all_documents:175 - Total URLs: 140; Successful: 140; Failed: 0; Empty: 0
+2025-02-14 00:17:19,351 - root - INFO - initialize_doc_vectorstore:121 - Time taken to fetch documents: 6.75 seconds
+2025-02-14 00:17:19,351 - root - INFO - initialize_doc_vectorstore:122 - Successfully fetched 140 documents
+2025-02-14 00:17:19,502 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-02-14 00:17:19,650 - chromadb.config - DEBUG - start:337 - Starting component System
+2025-02-14 00:17:19,650 - chromadb.config - DEBUG - start:337 - Starting component Posthog
+2025-02-14 00:17:19,650 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
+2025-02-14 00:17:19,650 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
+2025-02-14 00:17:20,052 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
+2025-02-14 00:17:20,052 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
+2025-02-14 00:17:20,052 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
+2025-02-14 00:17:20,053 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
+2025-02-14 00:17:20,053 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
+2025-02-14 00:20:32,025 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
+2025-02-14 00:20:37,926 - root - INFO - initialize_doc_vectorstore:145 - Vector store metrics: ProcessingMetrics(urls_processed=140, chunks_created=6292, embedding_time=1739510437.926257)
+2025-02-14 00:20:37,930 - root - INFO - initialize_stores:65 - doc_vectorstore successfully initalzied
+2025-02-14 00:20:37,930 - root - INFO - initialize_code_vectorstore:90 - Creating new code vector store
+2025-02-14 00:20:37,931 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-02-14 00:20:37,932 - chromadb.config - DEBUG - start:337 - Starting component System
+2025-02-14 00:20:37,932 - chromadb.config - DEBUG - start:337 - Starting component Posthog
+2025-02-14 00:20:37,932 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
+2025-02-14 00:20:37,933 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
+2025-02-14 00:20:38,348 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
+2025-02-14 00:20:38,348 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
+2025-02-14 00:20:38,349 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
+2025-02-14 00:20:38,349 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
+2025-02-14 00:20:38,349 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
+2025-02-14 00:20:38,381 - root - INFO - initialize_code_vectorstore:97 - Created new code vector store
+2025-02-14 00:20:38,382 - root - INFO - initialize_stores:67 - code_vectorestore successfully intialized
+2025-02-14 00:20:38,384 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
+2025-02-14 00:20:38,384 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
 Type of initial_batch_number: <class 'int'>, Value: 1
 /home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/components/chatbot.py:282: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, but this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
   warnings.warn(
 * Running on local URL:  http://0.0.0.0:8000
 
 To create a public link, set `share=True` in `launch()`.
-2025-02-13 22:34:30,058 - matplotlib.pyplot - DEBUG - switch_backend:497 - Loaded backend agg version v2.2.
-2025-02-13 22:34:30,059 - root - INFO - initialize_rl_agent:30 - Initializing RL Agent with model: model='qwen2.5-coder:0.5b' base_url='http://127.0.0.1:11434', state_dim: 384, action_dim: 2, learning_rate: 0.001, batch_number: 1
-2025-02-13 22:34:30,059 - root - INFO - __init__:233 - RLAgent.__init__ called
-2025-02-13 22:34:30,060 - root - INFO - __init__:133 - PPOAlgorithm.__init__ called
-2025-02-13 22:34:30,060 - root - INFO - __init__:69 - ActorNetwork.__init__ called
-2025-02-13 22:34:30,064 - root - INFO - __init__:102 - CriticNetwork.__init__ called
-2025-02-13 22:34:30,067 - root - INFO - __init__:32 - PPOMemory.__init__ called
-2025-02-13 22:34:44,277 - root - INFO - sync_process_input:149 - Button 'Submit' clicked! Calling sync_process_input with question: Create a pinescript v6 strategy
-2025-02-13 22:34:44,279 - root - INFO - sync_process_input:150 - sync_process_input - Input q type: <class 'str'>
-2025-02-13 22:34:44,280 - root - INFO - process_input:34 - process_input called with question: Create a pinescript v6 strategy
-2025-02-13 22:34:44,280 - root - INFO - process_input:35 - process_input - Input question type: <class 'str'>
-2025-02-13 22:34:44,280 - root - INFO - ensure_stores_initialized:363 - VectorStoreHandler.ensure_stores_initialized called
-2025-02-13 22:34:44,281 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
-2025-02-13 22:34:44,281 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
-/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py:49: LangChainDeprecationWarning: The method `BaseRetriever.aget_relevant_documents` was deprecated in langchain-core 0.1.46 and will be removed in 1.0. Use :meth:`~ainvoke` instead.
+2025-02-14 00:20:45,071 - matplotlib.pyplot - DEBUG - switch_backend:497 - Loaded backend agg version v2.2.
+2025-02-14 00:21:22,167 - root - INFO - sync_process_input:161 - sync_process_input - Input q type: <class 'str'>
+2025-02-14 00:21:22,167 - root - INFO - process_input:30 - process_input - Input question type: <class 'str'>
+/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py:48: LangChainDeprecationWarning: The method `BaseRetriever.aget_relevant_documents` was deprecated in langchain-core 0.1.46 and will be removed in 1.0. Use :meth:`~ainvoke` instead.
   docs = await doc_retriever.aget_relevant_documents(question, k=5)
-2025-02-13 22:34:44,347 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
-2025-02-13 22:34:44,439 - root - INFO - generate_code:323 - RLAgent.generate_code called
-2025-02-13 22:34:44,439 - root - INFO - get_state:289 - RLAgent.get_state called
-2025-02-13 22:34:44,439 - root - INFO - get_state:290 - get_state - START: Query: Create a pinescript v6 strategy
-2025-02-13 22:34:44,440 - root - INFO - embed_query:276 - RLAgent.embed_query called
-2025-02-13 22:34:44,479 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
-2025-02-13 22:34:44,483 - root - INFO - get_state:319 - get_state - END: State: {
-  "query": "Create a pinescript v6 strategy",
-  "query_embedding_length": 384,
-  "code_context_length": 0,
-  "num_retrieved_codes": 0
+2025-02-14 00:21:22,191 - root - INFO - get_state:289 - get_state - START: Query: create a pinescript v6 strategy using ta.sma and ta.rsi to define entry and exit. plot to the chart aswell
+2025-02-14 00:21:22,234 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
+2025-02-14 00:21:22,272 - root - DEBUG - get_state:335 - Query for state: create a pinescript v6 strategy using ta.sma and ta.rsi to define entry and exit. plot to the chart aswell
+2025-02-14 00:21:22,272 - root - DEBUG - get_state:336 - Retrieved code snippets (first snippet): No code retrieved
+2025-02-14 00:21:22,272 - root - INFO - get_state:337 - get_state - END: Query: create a pinescript v6 strategy using ta.sma and ta.rsi to define entry and exit. plot to the chart aswell
+2025-02-14 00:21:22,274 - root - INFO - generate_code_from_action:484 - generate_code_from_action - START, Action: 0, Query: create a pinescript v6 strategy using ta.sma and ta.rsi to define entry and exit. plot to the chart aswell
+2025-02-14 00:21:22,274 - root - INFO - generate_code_from_action:494 - Prompt sent to LLM:
+ry and exit. plot to the chart aswell
+            
+2025-02-14 00:22:03,565 - root - INFO - generate_code_from_action:496 - LLM Response:
+ script will help you create a robust Pine Script v6 strategy that meets all specified requirements....
+2025-02-14 00:22:03,565 - root - INFO - generate_code_from_action:505 - generate_code_from_action - END, Code generated (first 100 chars): //@version=6
+indicator("Exits for entries with different IDs demo", overlay = true, pyramiding = 2)
+...
+2025-02-14 00:22:03,565 - root - INFO - process_input:54 - Generated Code (RL):
+//@version=6
+indicator("Exits for entries with different IDs demo", overlay = true, pyramiding = 2)
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.entry("buy", strategy.long, position = "long", length = 150)
+strategy.exit("sell", strategy.short, stoploss = -0.1 * ta.sma(close, 13), takeprofit = 0)
+
+// Function to calculate exit orders
+function calculateExitOrder(entryOrderID, entryPrice, tradeSize, stopLoss, takeProfit, previousEntryID) {
+    if (previousEntryID == -1 || entryOrderID == previousEntryID) return
+
+    // Create a new entry order with distinct ID and calculated parameters
+    strategy.entry(
+        "exit" + entryOrderID,
+        strategy.long,
+        position = "long",
+        length = 50, // Adjust based on your market conditions
+        stoploss = -tradeSize * takeProfit,
+        takeprofit = tradeSize * takeProfit - stopLoss
+    )
+
+    # Add exit order to the list if the size is within acceptable range
+    if (strategy.close[entryOrderID] > entryPrice) {
+        entryOrders.push(entryOrderID)
+    }
 }
-2025-02-13 22:34:44,484 - root - INFO - choose_action:342 - RLAgent.choose_action called
-2025-02-13 22:34:44,484 - root - INFO - choose_action:161 - PPOAlgorithm.choose_action called
-2025-02-13 22:34:44,484 - root - INFO - forward:86 - ActorNetwork.forward called
-2025-02-13 22:34:44,485 - root - INFO - forward:118 - CriticNetwork.forward called
-2025-02-13 22:34:44,486 - root - INFO - generate_code:326 - Chosen action: 0, Probability: -0.6687655448913574, Value: -0.015997178852558136
-2025-02-13 22:34:44,486 - root - ERROR - process_input:56 - Error generating code with RL agent: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
-Traceback (most recent call last):
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 52, in process_input
-    generated_code = await self.rl_agent.generate_code(question)  # Use RL agent
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 328, in generate_code
-    context = await self.vector_store.get_relevant_documents(question)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
-2025-02-13 22:34:59,984 - root - INFO - sync_test_strategy:170 - Button 'Test Strategy' clicked! Calling sync_test_strategy
-2025-02-13 22:34:59,984 - root - INFO - test_strategy:71 - test_strategy called
-2025-02-13 22:35:07,782 - root - INFO - sync_train_rl_agent:174 - Button 'Train RL Agent' clicked! Calling sync_train_rl_agent with num_batches: 5, episodes_per_batch: 2, batch_number: 1
-2025-02-13 22:35:07,783 - root - INFO - train_rl_agent:87 - train_rl_agent called with num_batches: 5, episodes_per_batch: 2, batch_number: 1
-2025-02-13 22:35:07,783 - root - INFO - train_loop:361 - RLAgent.train_loop called
-2025-02-13 22:35:07,783 - root - INFO - generate_code:323 - RLAgent.generate_code called
-2025-02-13 22:35:07,783 - root - INFO - get_state:289 - RLAgent.get_state called
-2025-02-13 22:35:07,783 - root - INFO - get_state:290 - get_state - START: Query: Generate a Pine Script strategy for batch 1, episode 1
-2025-02-13 22:35:07,784 - root - INFO - embed_query:276 - RLAgent.embed_query called
-2025-02-13 22:35:07,837 - root - INFO - get_state:319 - get_state - END: State: {
-  "query": "Generate a Pine Script strategy for batch 1, episo...",
-  "query_embedding_length": 384,
-  "code_context_length": 0,
-  "num_retrieved_codes": 0
+
+// Check for previous successful strategies and calculate new orders
+for i = 0, end = length(previousSuccessfulStrategies); i < end; i++ {
+    entryOrderID = previousSuccessfulStrategies[i]
+    entryPrice = ta.close[entryOrderID]
+
+    // Calculate exit order if necessary
+    calculatedExitOrder(entryOrderID, entryPrice, tradeSize, stopLoss, takeProfit, previousEntryID)
 }
-2025-02-13 22:35:07,837 - root - INFO - choose_action:342 - RLAgent.choose_action called
-2025-02-13 22:35:07,837 - root - INFO - choose_action:161 - PPOAlgorithm.choose_action called
-2025-02-13 22:35:07,838 - root - INFO - forward:86 - ActorNetwork.forward called
-2025-02-13 22:35:07,838 - root - INFO - forward:118 - CriticNetwork.forward called
-2025-02-13 22:35:07,839 - root - INFO - generate_code:326 - Chosen action: 1, Probability: -0.7160099744796753, Value: -0.017917852848768234
-2025-02-13 22:35:07,840 - root - ERROR - train_loop:379 - Error during training episode: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
-Traceback (most recent call last):
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 373, in train_loop
-    generated_code = await self.generate_code(question)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 328, in generate_code
-    context = await self.vector_store.get_relevant_documents(question)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
-2025-02-13 22:35:07,841 - root - INFO - learn:174 - PPOAlgorithm.learn called
-2025-02-13 22:35:07,841 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,842 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,842 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,842 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,842 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,842 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,843 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,843 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,843 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,844 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,844 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,845 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,845 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,845 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,845 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,846 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,846 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,846 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,846 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
-2025-02-13 22:35:07,846 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
-2025-02-13 22:35:07,846 - root - INFO - clear:59 - PPOMemory.clear called
-Traceback (most recent call last):
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/queueing.py", line 625, in process_events
-    response = await route_utils.call_process_api(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<5 lines>...
-    )
-    ^
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/route_utils.py", line 322, in call_process_api
-    output = await app.get_blocks().process_api(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<11 lines>...
-    )
-    ^
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/blocks.py", line 2051, in process_api
-    result = await self.call_function(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<8 lines>...
-    )
-    ^
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/blocks.py", line 1598, in call_function
-    prediction = await anyio.to_thread.run_sync(  # type: ignore
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        fn, *processed_input, limiter=self.limiter
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/anyio/to_thread.py", line 56, in run_sync
-    return await get_async_backend().run_sync_in_worker_thread(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2461, in run_sync_in_worker_thread
-    return await future
-           ^^^^^^^^^^^^
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 962, in run
-    result = context.run(func, *args)
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/utils.py", line 883, in wrapper
-    response = f(*args, **kwargs)
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 177, in sync_train_rl_agent
-    return loop.run_until_complete(self.train_rl_agent(int(num_batches), int(episodes_per_batch), int(batch_number)))  # Pass num_batches and episodes_per_batch, convert to int - ENSURE ALL ARE INT
-           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 89, in train_rl_agent
-    self.episode_rewards_history, self.actor_losses_history, self.critic_losses_history = await self.rl_agent.train_loop(num_batches=int(num_batches), episodes_per_batch=int(episodes_per_batch))  # Call train_loop, ensure num_batches and episodes_per_batch are int
-                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 391, in train_loop
-    f"Reward: {reward:.2f}, Actor Loss: {sum(actor_losses) / len(actor_losses):.3f}, "
-                                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-ZeroDivisionError: division by zero
+
+// Plot the entry and exit orders to the chart
+plotshape(ta.sma(close, 13), title="SMA Entry", color=color.green, style=plot.style_circles)
+plotshape(ta.rsi(close), title="RSI Entry", color=color.blue, style=plot.style_circles)
+
+// Plot the takeProfit and stopLoss values to the chart
+plot(takeProfit, "TP", color.green, style = plot.style_circles)
+plot(stopLoss, "SL", color.red, style = plot.style_circles)
+2025-02-14 00:22:15,108 - root - INFO - load_urls_from_file:226 - Raw lines in file: 140
+2025-02-14 00:22:15,109 - root - INFO - load_urls_from_file:228 - Valid URLs after filtering: 140
+2025-02-14 00:22:20,772 - selenium.webdriver.common.service - DEBUG - _start_process:230 - Started executable: `/usr/bin/geckodriver` in a child process with pid: 146999 using 0 to output -3
+2025-02-14 00:22:22,592 - root - INFO - get_or_create_driver:57 - Created new Firefox driver for timeframe: 1min
+2025-02-14 00:22:22,592 - root - INFO - test_strategy_timeframe:63 - Starting strategy test for timeframe: 1min
+2025-02-14 00:22:27,112 - root - INFO - test_strategy_timeframe:65 - Successfully opened TradingView URL.
+2025-02-14 00:22:27,113 - root - INFO - test_strategy_timeframe:66 - Starting pasting code.
+2025-02-14 00:22:27,583 - root - INFO - _wait_for_spinner_gone:387 - Initial spinner invisibility detected.
+2025-02-14 00:22:28,127 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 1/5.
+2025-02-14 00:22:28,691 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 2/5.
+2025-02-14 00:22:29,210 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 3/5.
+2025-02-14 00:22:29,727 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 4/5.
+2025-02-14 00:22:30,255 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 5/5.
+2025-02-14 00:22:30,256 - root - INFO - _wait_for_spinner_gone:399 - Spinner is reliably gone after re-checks.
+2025-02-14 00:22:30,256 - root - INFO - _paste_code:425 - Spinner is reliably gone.
+2025-02-14 00:22:30,264 - root - INFO - _paste_code:431 - Attempting to clear existing text in Pine Editor using ActionChains (Ctrl+A + Delete)...
+2025-02-14 00:22:30,775 - root - INFO - _paste_code:442 - Editor element scrolled into view.
+2025-02-14 00:22:31,909 - root - INFO - _paste_code:451 - Pine Editor cleared via ActionChains (Ctrl+A + Delete).
+2025-02-14 00:22:31,909 - root - INFO - _paste_code:455 - Pasting code into Pine Editor using JavaScript 'paste' event simulation...
+2025-02-14 00:22:32,511 - root - INFO - _paste_code:476 - Dispatched 'paste' event to Monaco Editor.
+2025-02-14 00:22:32,573 - root - INFO - _paste_code:482 - Code set via JavaScript value.
+2025-02-14 00:22:32,642 - root - INFO - _paste_code:491 - Dispatched 'input' and 'change' events to Monaco Editor.
+2025-02-14 00:22:33,773 - root - INFO - _paste_code:496 - Pressed Ctrl + Enter to add the code to the chart.
+2025-02-14 00:22:33,773 - root - INFO - paste_code:410 - Successfully pasted code into Pine Editor
+2025-02-14 00:22:33,773 - root - INFO - test_strategy_timeframe:68 - Code pasted successfully..
+2025-02-14 00:22:33,773 - root - INFO - test_strategy_timeframe:70 - Checking if strategy has been added to chart...
+2025-02-14 00:22:43,962 - root - WARNING - check_strategy_added:511 - Strategy not added. Checking for compiler errors...
+2025-02-14 00:22:43,962 - root - INFO - get_compiler_errors:262 - Starting to check for compiler errors...
+2025-02-14 00:22:43,991 - root - INFO - get_compiler_errors:281 - Found text in 'dirname' element: 
+2025-02-14 00:22:43,991 - root - ERROR - get_compiler_errors:287 - Unable to parse the number of errors.
+2025-02-14 00:22:43,991 - root - ERROR - check_strategy_added:513 - Compiler errors: None
+2025-02-14 00:22:43,991 - root - ERROR - test_strategy_timeframe:102 - Compilation error for timeframe 1min: None
+2025-02-14 00:22:44,608 - root - INFO - cleanup_driver:147 - Closed Firefox driver for timeframe: 1min
+2025-02-14 00:22:44,609 - root - INFO - test_strategy_timeframe:109 - Cleaned up driver for timeframe 1min.
+2025-02-14 00:22:44,609 - root - INFO - test_strategy_all_timeframes:133 - Compilation error encountered: None
+2025-02-14 00:22:44,703 - root - INFO - add_code_to_vectorstore:331 - Added code and results to vector store with status: failure
+2025-02-14 00:22:55,947 - root - INFO - train_loop:346 - Starting training batch 2
+2025-02-14 00:22:56,948 - root - INFO - train:399 - train - START: Batch 2, Episodes: 2
+2025-02-14 00:22:56,948 - root - INFO - train:401 - Episode 1/2 - START
+2025-02-14 00:22:56,949 - root - INFO - train:403 - Episode 1/2 - Got user query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:22:56,949 - root - INFO - get_state:289 - get_state - START: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:22:57,002 - chromadb.segment.impl.vector.local_persistent_hnsw - WARNING - query_vectors:423 - Number of requested results 5 is greater than number of elements in index 1, updating n_results = 1
+2025-02-14 00:22:57,081 - root - DEBUG - get_state:335 - Query for state: Create a basic Pine Script v6 strategy.
+2025-02-14 00:22:57,081 - root - DEBUG - get_state:336 - Retrieved code snippets (first snippet): Code:
+//@version=6
+indicator("Exits for entries with different IDs demo", overlay = true, pyramiding = 2)
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.entry("b
+2025-02-14 00:22:57,081 - root - INFO - get_state:337 - get_state - END: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:22:57,081 - root - INFO - train:405 - Episode 1/2 - Got state
+2025-02-14 00:22:57,082 - root - INFO - train:408 - Episode 1/2 - Chosen action: 1
+2025-02-14 00:22:57,083 - root - INFO - generate_code_from_action:484 - generate_code_from_action - START, Action: 1, Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:22:57,083 - root - INFO - generate_code_from_action:494 - Prompt sent to LLM:
+eate a basic Pine Script v6 strategy.
+            
+2025-02-14 00:23:44,077 - root - INFO - generate_code_from_action:496 - LLM Response:
+ed trading logic, handling different market conditions, or integrating with other trading platforms....
+2025-02-14 00:23:44,077 - root - INFO - generate_code_from_action:505 - generate_code_from_action - END, Code generated (first 100 chars): //@version=6
+
+strategy("Exits for Entries with Different IDs demo", overlay = true, pyramiding = 2)
+...
+2025-02-14 00:23:44,078 - root - INFO - train:410 - Episode 1/2 - Generated code (first 100 chars): //@version=6
+
+strategy("Exits for Entries with Different IDs demo", overlay = true, pyramiding = 2)
+...
+2025-02-14 00:23:44,078 - root - ERROR - train:425 - Episode 1/2 - Failed to save generated code: [Errno 2] No such file or directory: 'training_output/episode_1_batch_2_reward_N/A_20250214-002344.pinescript'
+2025-02-14 00:23:44,078 - root - INFO - train:427 - Episode 1/2 - Testing strategy...
+2025-02-14 00:23:44,078 - root - INFO - test_strategy_async:455 - test_strategy_async - START
+2025-02-14 00:23:44,133 - selenium.webdriver.common.service - DEBUG - _start_process:230 - Started executable: `/usr/bin/geckodriver` in a child process with pid: 150295 using 0 to output -3
+2025-02-14 00:23:46,036 - root - INFO - get_or_create_driver:57 - Created new Firefox driver for timeframe: 1min
+2025-02-14 00:23:46,036 - root - INFO - test_strategy_timeframe:63 - Starting strategy test for timeframe: 1min
+2025-02-14 00:23:50,366 - root - INFO - test_strategy_timeframe:65 - Successfully opened TradingView URL.
+2025-02-14 00:23:50,366 - root - INFO - test_strategy_timeframe:66 - Starting pasting code.
+2025-02-14 00:23:50,819 - root - INFO - _wait_for_spinner_gone:387 - Initial spinner invisibility detected.
+2025-02-14 00:23:51,424 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 1/5.
+2025-02-14 00:23:51,936 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 2/5.
+2025-02-14 00:23:52,454 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 3/5.
+2025-02-14 00:23:52,976 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 4/5.
+2025-02-14 00:23:53,501 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 5/5.
+2025-02-14 00:23:53,501 - root - INFO - _wait_for_spinner_gone:399 - Spinner is reliably gone after re-checks.
+2025-02-14 00:23:53,501 - root - INFO - _paste_code:425 - Spinner is reliably gone.
+2025-02-14 00:23:53,506 - root - INFO - _paste_code:431 - Attempting to clear existing text in Pine Editor using ActionChains (Ctrl+A + Delete)...
+2025-02-14 00:23:54,013 - root - INFO - _paste_code:442 - Editor element scrolled into view.
+2025-02-14 00:23:55,195 - root - INFO - _paste_code:451 - Pine Editor cleared via ActionChains (Ctrl+A + Delete).
+2025-02-14 00:23:55,195 - root - INFO - _paste_code:455 - Pasting code into Pine Editor using JavaScript 'paste' event simulation...
+2025-02-14 00:23:55,794 - root - INFO - _paste_code:476 - Dispatched 'paste' event to Monaco Editor.
+2025-02-14 00:23:55,863 - root - ERROR - _paste_code:500 - Error in _paste_code: Message: SyntaxError: unexpected token: identifier
+
+2025-02-14 00:23:55,864 - root - INFO - paste_code:410 - Successfully pasted code into Pine Editor
+2025-02-14 00:23:55,864 - root - INFO - test_strategy_timeframe:68 - Code pasted successfully..
+2025-02-14 00:23:55,864 - root - INFO - test_strategy_timeframe:70 - Checking if strategy has been added to chart...
+2025-02-14 00:24:06,055 - root - WARNING - check_strategy_added:511 - Strategy not added. Checking for compiler errors...
+2025-02-14 00:24:06,055 - root - INFO - get_compiler_errors:262 - Starting to check for compiler errors...
+2025-02-14 00:24:19,465 - root - INFO - get_compiler_errors:281 - Found text in 'dirname' element: 1 of 1 problem
+2025-02-14 00:24:19,466 - root - INFO - get_compiler_errors:285 - Found 1 errors.
+2025-02-14 00:24:19,466 - root - INFO - navigate_errors:305 - Navigating through errors...
+2025-02-14 00:24:19,466 - root - INFO - navigate_errors:310 - Starting from the last error...
+2025-02-14 00:24:23,547 - root - WARNING - extract_error_details:355 - No aria-label found for error message.
+2025-02-14 00:24:23,578 - root - INFO - navigate_errors:328 - Successfully navigated through 1 errors.
+2025-02-14 00:24:23,578 - root - ERROR - check_strategy_added:513 - Compiler errors: [{'label': 'Certainly!//@version=6', 'line': '1:1', 'description': 'Script could not be translated from: null'}]
+2025-02-14 00:24:23,578 - root - ERROR - test_strategy_timeframe:102 - Compilation error for timeframe 1min: [{'label': 'Certainly!//@version=6', 'line': '1:1', 'description': 'Script could not be translated from: null'}]
+2025-02-14 00:24:24,102 - root - INFO - cleanup_driver:147 - Closed Firefox driver for timeframe: 1min
+2025-02-14 00:24:24,102 - root - INFO - test_strategy_timeframe:109 - Cleaned up driver for timeframe 1min.
+2025-02-14 00:24:24,102 - root - INFO - test_strategy_all_timeframes:133 - Compilation error encountered: [{'label': 'Certainly!//@version=6', 'line': '1:1', 'description': 'Script could not be translated from: null'}]
+2025-02-14 00:24:24,102 - root - INFO - test_strategy_async:458 - test_strategy_async - Strategy test completed, Success: False
+2025-02-14 00:24:24,103 - root - INFO - test_strategy_async:467 - test_strategy_async - END
+2025-02-14 00:24:24,103 - root - INFO - train:429 - Episode 1/2 - Strategy tested, Success: False
+2025-02-14 00:24:24,103 - root - INFO - reward_function:535 - Reward Function - Success: False, Results/Errors Type: <class 'selenium_handler2.CompilationError'>
+2025-02-14 00:24:24,103 - root - INFO - reward_function:541 - Reward Function - Compilation Errors Detected
+2025-02-14 00:24:24,103 - root - INFO - reward_function:544 - Reward Function - Returning reward: -2 (Compilation Error - 1 errors)
+2025-02-14 00:24:24,103 - root - INFO - train:432 - Episode 1/2 - Calculated reward: -2
+2025-02-14 00:24:24,103 - root - INFO - get_state:289 - get_state - START: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,129 - chromadb.segment.impl.vector.local_persistent_hnsw - WARNING - query_vectors:423 - Number of requested results 5 is greater than number of elements in index 1, updating n_results = 1
+2025-02-14 00:24:24,204 - root - DEBUG - get_state:335 - Query for state: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,204 - root - DEBUG - get_state:336 - Retrieved code snippets (first snippet): Code:
+//@version=6
+indicator("Exits for entries with different IDs demo", overlay = true, pyramiding = 2)
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.entry("b
+2025-02-14 00:24:24,204 - root - INFO - get_state:337 - get_state - END: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,204 - root - INFO - train:435 - Episode 1/2 - Got next state
+2025-02-14 00:24:24,204 - root - INFO - train:437 - Episode 1/2 - Memory remembered
+2025-02-14 00:24:24,204 - root - INFO - train:447 - Episode 1/2 - END, Reward: -2, Avg Reward: -2.00
+2025-02-14 00:24:24,205 - root - INFO - train:401 - Episode 2/2 - START
+2025-02-14 00:24:24,205 - root - INFO - train:403 - Episode 2/2 - Got user query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,205 - root - INFO - get_state:289 - get_state - START: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,226 - chromadb.segment.impl.vector.local_persistent_hnsw - WARNING - query_vectors:423 - Number of requested results 5 is greater than number of elements in index 1, updating n_results = 1
+2025-02-14 00:24:24,340 - root - DEBUG - get_state:335 - Query for state: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,340 - root - DEBUG - get_state:336 - Retrieved code snippets (first snippet): Code:
+//@version=6
+indicator("Exits for entries with different IDs demo", overlay = true, pyramiding = 2)
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.entry("b
+2025-02-14 00:24:24,340 - root - INFO - get_state:337 - get_state - END: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,340 - root - INFO - train:405 - Episode 2/2 - Got state
+2025-02-14 00:24:24,342 - root - INFO - train:408 - Episode 2/2 - Chosen action: 0
+2025-02-14 00:24:24,343 - root - INFO - generate_code_from_action:484 - generate_code_from_action - START, Action: 0, Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:24:24,343 - root - INFO - generate_code_from_action:494 - Prompt sent to LLM:
+eate a basic Pine Script v6 strategy.
+            
+2025-02-14 00:25:10,224 - root - INFO - generate_code_from_action:496 - LLM Response:
+o add more complex logic and features based on your actual market conditions and trading strategies....
+2025-02-14 00:25:10,224 - root - INFO - generate_code_from_action:505 - generate_code_from_action - END, Code generated (first 100 chars): //@version=6
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.e...
+2025-02-14 00:25:10,224 - root - INFO - train:410 - Episode 2/2 - Generated code (first 100 chars): //@version=6
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.e...
+2025-02-14 00:25:10,224 - root - INFO - train:423 - Episode 2/2 - Generated code saved to: training_output/episode_2_batch_2_reward_-2_20250214-002510.pinescript
+2025-02-14 00:25:10,224 - root - INFO - train:427 - Episode 2/2 - Testing strategy...
+2025-02-14 00:25:10,224 - root - INFO - test_strategy_async:455 - test_strategy_async - START
+2025-02-14 00:25:10,297 - selenium.webdriver.common.service - DEBUG - _start_process:230 - Started executable: `/usr/bin/geckodriver` in a child process with pid: 153372 using 0 to output -3
+2025-02-14 00:25:12,253 - root - INFO - get_or_create_driver:57 - Created new Firefox driver for timeframe: 1min
+2025-02-14 00:25:12,254 - root - INFO - test_strategy_timeframe:63 - Starting strategy test for timeframe: 1min
+2025-02-14 00:25:16,736 - root - INFO - test_strategy_timeframe:65 - Successfully opened TradingView URL.
+2025-02-14 00:25:16,736 - root - INFO - test_strategy_timeframe:66 - Starting pasting code.
+2025-02-14 00:25:17,147 - root - INFO - _wait_for_spinner_gone:387 - Initial spinner invisibility detected.
+2025-02-14 00:25:17,696 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 1/5.
+2025-02-14 00:25:18,263 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 2/5.
+2025-02-14 00:25:18,788 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 3/5.
+2025-02-14 00:25:19,336 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 4/5.
+2025-02-14 00:25:19,865 - root - INFO - _wait_for_spinner_gone:394 - Spinner re-invisibility confirmed on attempt 5/5.
+2025-02-14 00:25:19,865 - root - INFO - _wait_for_spinner_gone:399 - Spinner is reliably gone after re-checks.
+2025-02-14 00:25:19,866 - root - INFO - _paste_code:425 - Spinner is reliably gone.
+2025-02-14 00:25:19,873 - root - INFO - _paste_code:431 - Attempting to clear existing text in Pine Editor using ActionChains (Ctrl+A + Delete)...
+2025-02-14 00:25:20,384 - root - INFO - _paste_code:442 - Editor element scrolled into view.
+2025-02-14 00:25:21,576 - root - INFO - _paste_code:451 - Pine Editor cleared via ActionChains (Ctrl+A + Delete).
+2025-02-14 00:25:21,576 - root - INFO - _paste_code:455 - Pasting code into Pine Editor using JavaScript 'paste' event simulation...
+2025-02-14 00:25:22,182 - root - INFO - _paste_code:476 - Dispatched 'paste' event to Monaco Editor.
+2025-02-14 00:25:22,233 - root - INFO - _paste_code:482 - Code set via JavaScript value.
+2025-02-14 00:25:22,289 - root - INFO - _paste_code:491 - Dispatched 'input' and 'change' events to Monaco Editor.
+2025-02-14 00:25:23,484 - root - INFO - _paste_code:496 - Pressed Ctrl + Enter to add the code to the chart.
+2025-02-14 00:25:23,485 - root - INFO - paste_code:410 - Successfully pasted code into Pine Editor
+2025-02-14 00:25:23,485 - root - INFO - test_strategy_timeframe:68 - Code pasted successfully..
+2025-02-14 00:25:23,485 - root - INFO - test_strategy_timeframe:70 - Checking if strategy has been added to chart...
+2025-02-14 00:25:33,791 - root - WARNING - check_strategy_added:511 - Strategy not added. Checking for compiler errors...
+2025-02-14 00:25:33,791 - root - INFO - get_compiler_errors:262 - Starting to check for compiler errors...
+2025-02-14 00:25:33,834 - root - INFO - get_compiler_errors:281 - Found text in 'dirname' element: 1 of 1 problem
+2025-02-14 00:25:33,834 - root - INFO - get_compiler_errors:285 - Found 1 errors.
+2025-02-14 00:25:33,834 - root - INFO - navigate_errors:305 - Navigating through errors...
+2025-02-14 00:25:33,834 - root - INFO - navigate_errors:310 - Starting from the last error...
+2025-02-14 00:25:37,993 - root - WARNING - extract_error_details:355 - No aria-label found for error message.
+2025-02-14 00:25:38,027 - root - INFO - navigate_errors:328 - Successfully navigated through 1 errors.
+2025-02-14 00:25:38,028 - root - ERROR - check_strategy_added:513 - Compiler errors: [{'label': 'calculateExitOrder', 'line': '11:105', 'description': "no viable alternative at character '{'"}]
+2025-02-14 00:25:38,028 - root - ERROR - test_strategy_timeframe:102 - Compilation error for timeframe 1min: [{'label': 'calculateExitOrder', 'line': '11:105', 'description': "no viable alternative at character '{'"}]
+2025-02-14 00:25:38,635 - root - INFO - cleanup_driver:147 - Closed Firefox driver for timeframe: 1min
+2025-02-14 00:25:38,636 - root - INFO - test_strategy_timeframe:109 - Cleaned up driver for timeframe 1min.
+2025-02-14 00:25:38,636 - root - INFO - test_strategy_all_timeframes:133 - Compilation error encountered: [{'label': 'calculateExitOrder', 'line': '11:105', 'description': "no viable alternative at character '{'"}]
+2025-02-14 00:25:38,636 - root - INFO - test_strategy_async:458 - test_strategy_async - Strategy test completed, Success: False
+2025-02-14 00:25:38,637 - root - INFO - test_strategy_async:467 - test_strategy_async - END
+2025-02-14 00:25:38,637 - root - INFO - train:429 - Episode 2/2 - Strategy tested, Success: False
+2025-02-14 00:25:38,637 - root - INFO - reward_function:535 - Reward Function - Success: False, Results/Errors Type: <class 'selenium_handler2.CompilationError'>
+2025-02-14 00:25:38,638 - root - INFO - reward_function:541 - Reward Function - Compilation Errors Detected
+2025-02-14 00:25:38,638 - root - INFO - reward_function:544 - Reward Function - Returning reward: -2 (Compilation Error - 1 errors)
+2025-02-14 00:25:38,638 - root - INFO - train:432 - Episode 2/2 - Calculated reward: -2
+2025-02-14 00:25:38,639 - root - INFO - get_state:289 - get_state - START: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:25:38,699 - chromadb.segment.impl.vector.local_persistent_hnsw - WARNING - query_vectors:423 - Number of requested results 5 is greater than number of elements in index 1, updating n_results = 1
+2025-02-14 00:25:38,803 - root - DEBUG - get_state:335 - Query for state: Create a basic Pine Script v6 strategy.
+2025-02-14 00:25:38,803 - root - DEBUG - get_state:336 - Retrieved code snippets (first snippet): Code:
+//@version=6
+indicator("Exits for entries with different IDs demo", overlay = true, pyramiding = 2)
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.entry("b
+2025-02-14 00:25:38,803 - root - INFO - get_state:337 - get_state - END: Query: Create a basic Pine Script v6 strategy.
+2025-02-14 00:25:38,803 - root - INFO - train:435 - Episode 2/2 - Got next state
+2025-02-14 00:25:38,803 - root - INFO - train:437 - Episode 2/2 - Memory remembered
+2025-02-14 00:25:38,803 - root - INFO - train:447 - Episode 2/2 - END, Reward: -2, Avg Reward: -2.00
+2025-02-14 00:25:38,803 - root - INFO - train:449 - train - END: Batch 2 Episodes finished: Reward = -2, Avg Reward: -2.00
+2025-02-14 00:25:38,804 - root - INFO - train_loop:354 - Finished batch 2, Average Reward: -2.00
+2025-02-14 00:25:38,806 - root - INFO - train_loop:361 - Saved actor and critic models after batch 2 to: training_output
+/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py:375: RuntimeWarning: coroutine 'RLAgent.plot_policy' was never awaited
+  self.plot_policy(batch_num + 1, save_path=self.training_output_folder) # Plot policy after each batch, save in policy plot folder
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback

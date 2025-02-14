@@ -1,0 +1,45 @@
+//@version=6
+
+// Initialize variables
+previousSuccessfulStrategies = []
+entryOrders = []
+
+strategy.entry("buy", strategy.long, position = "long", length = 150)
+strategy.exit("sell", strategy.short, stoploss = -0.1 * ta.sma(close, 13), takeprofit = 0)
+
+// Function to calculate exit orders
+function calculateExitOrder(entryOrderID, entryPrice, tradeSize, stopLoss, takeProfit, previousEntryID) {
+    if (previousEntryID == -1 || entryOrderID == previousEntryID) return
+
+    // Create a new entry order with distinct ID and calculated parameters
+    strategy.entry(
+        "exit" + entryOrderID,
+        strategy.long,
+        position = "long",
+        length = 50, // Adjust based on your market conditions
+        stoploss = -tradeSize * takeProfit,
+        takeprofit = tradeSize * takeProfit - stopLoss
+    )
+
+    # Add exit order to the list if the size is within acceptable range
+    if (strategy.close[entryOrderID] > entryPrice) {
+        entryOrders.push(entryOrderID)
+    }
+}
+
+// Check for previous successful strategies and calculate new orders
+for i = 0, end = length(previousSuccessfulStrategies); i < end; i++ {
+    entryOrderID = previousSuccessfulStrategies[i]
+    entryPrice = ta.close[entryOrderID]
+
+    // Calculate exit order if necessary
+    calculatedExitOrder(entryOrderID, entryPrice, tradeSize, stopLoss, takeProfit, previousEntryID)
+}
+
+// Plot the entry and exit orders to the chart
+plotshape(ta.sma(close, 13), title="SMA Entry", color=color.green, style=plot.style_circles)
+plotshape(ta.rsi(close), title="RSI Entry", color=color.blue, style=plot.style_circles)
+
+// Plot the takeProfit and stopLoss values to the chart
+plot(takeProfit, "TP", color.green, style = plot.style_circles)
+plot(stopLoss, "SL", color.red, style = plot.style_circles)
