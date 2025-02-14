@@ -320,22 +320,23 @@ Query: {question} (Question: {question} - Carefully analyze the provided documen
         return state
 
     async def generate_code(self, question: str):
-        logging.info("RLAgent.generate_code called")
-        state = await self.get_state(question)
-        action, prob, value = self.choose_action(state["query_embedding"])  # Action based on query embedding
-        logger.info(f"Chosen action: {action}, Probability: {prob}, Value: {value}")
-        # Retrieve context and code context
-        context = await self.vector_store.get_relevant_documents(question)
-        code_context = state["code_context"]
-        # Prepare input for the after_rag_chain
-        input_data = {"context": context, "code_context": code_context, "question": question}
-        logger.info(f"generate_code - Input data before prompt chain: {input_data}")
-        generated_code = await self.after_rag_chain.ainvoke(input_data)
-        logger.info(f"generate_code - Generated Code: {generated_code}")
-        reward = await self.evaluate_code(generated_code)  # Evaluate generated code
-        logger.info(f"generate_code - Reward: {reward}")
-        self.remember(state["query_embedding"], action, prob, value, reward)  # Store experience
-        return generated_code
+            logging.info("RLAgent.generate_code called")
+            state = await self.get_state(question)
+            action, prob, value = self.choose_action(state["query_embedding"])  # Action based on query embedding
+            logger.info(f"Chosen action: {action}, Probability: {prob}, Value: {value}")
+            # Retrieve context and code context
+            context = await self.vector_store.get_relevant_documents(question)
+            code_context = state["code_context"]
+            # Prepare input for the after_rag_chain
+            input_data = {"context": context, "code_context": code_context, "question": question}
+            logger.info(f"generate_code - Input data before prompt chain: {input_data}")
+            generated_code = await self.after_rag_chain.ainvoke(input_data)
+            logger.info(f"generate_code - Generated Code: {generated_code}")
+            reward = await self.evaluate_code(generated_code)  # Evaluate generated code
+            logger.info(f"generate_code - Reward: {reward}")
+            self.remember(state["query_embedding"], action, prob, value, reward)  # Store experience
+            return generated_code
+
 
 
     def choose_action(self, state):

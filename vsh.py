@@ -56,6 +56,7 @@ class VectorStoreHandler:
         logging.info("VectorStoreHandler.__init__ called")
         self.doc_vectorstore = None
         self.code_vectorstore = None
+        self.doc_retriever = None
         self.ingested_urls: Set[str] = set()
         self.embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         self._stores_initialized = asyncio.Event()
@@ -122,6 +123,7 @@ class VectorStoreHandler:
                 )
                 logger.info("Successfully loaded existing documentation vector store")
                 vectorstore_ops.labels(operation_type='load_existing_doc').inc()
+                self.doc_retriever = vectorstore.as_retriever()
                 return vectorstore
             except Exception as e:
                 logger.error(f"Error loading existing vectorstore: {e}")
@@ -144,10 +146,12 @@ class VectorStoreHandler:
                     doc_splits = text_splitter.split_documents(docs_list)
                     vectorstore = Chroma.from_documents(
                         documents=doc_splits,
+                        documents=doc_splits,
                         collection_name="rag-chroma",
                         embedding=self.embedding_model,
                         persist_directory="doc_vectorstore"
                     )
+                    self.doc_retriever = vectorstore.as_retriever()
                     docs_processed.inc(len(docs_list))
                     vectorstore_ops.labels(operation_type='create_new_doc').inc()
                     metrics = ProcessingMetrics(
@@ -180,10 +184,12 @@ class VectorStoreHandler:
                 doc_splits = text_splitter.split_documents(docs_list)
                 vectorstore = Chroma.from_documents(
                     documents=doc_splits,
+                    documents=doc_splits,
                     collection_name="rag-chroma",
                     embedding=self.embedding_model,
                     persist_directory="doc_vectorstore"
                 )
+                self.doc_retriever = vectorstore.as_retriever()
                 docs_processed.inc(len(docs_list))
                 vectorstore_ops.labels(operation_type='create_new_doc').inc()
                 metrics = ProcessingMetrics(
@@ -196,6 +202,15 @@ class VectorStoreHandler:
             except Exception as e:
                 logger.error(f"Error creating new vectorstore: {e}")
                 return None
+
+    async def get_relevant_documents(self, query: str):
+        if self.doc_retriever:
+            docs = await self.doc_retriever.aget_relevant_documents(query)
+            return "\n".join([doc.page_content for doc in docs])
+        else:
+            return ""
+
+
 
     async def fetch_all_documents(self, urls: List[str]) -> List[Document]:
         logging.info(f"VectorStoreHandler.fetch_all_documents called with {len(urls)} urls")
