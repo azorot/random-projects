@@ -1,66 +1,145 @@
 (venv) [azoroth@theRottenCore new]$ python grag.py
-2025-02-13 22:09:48,415 - matplotlib - DEBUG - wrapper:342 - matplotlib data path: /home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/matplotlib/mpl-data
-2025-02-13 22:09:48,420 - matplotlib - DEBUG - wrapper:342 - CONFIGDIR=/home/azoroth/.config/matplotlib
-2025-02-13 22:09:48,421 - matplotlib - DEBUG - <module>:1557 - interactive is False
-2025-02-13 22:09:48,421 - matplotlib - DEBUG - <module>:1558 - platform is linux
-2025-02-13 22:09:48,476 - matplotlib - DEBUG - wrapper:342 - CACHEDIR=/home/azoroth/.cache/matplotlib
-2025-02-13 22:09:48,625 - asyncio - DEBUG - __init__:64 - Using selector: EpollSelector
-2025-02-13 22:09:48,625 - root - INFO - __init__:56 - VectorStoreHandler.__init__ called
-2025-02-13 22:09:50,337 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
-2025-02-13 22:09:50,337 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
-2025-02-13 22:09:51,905 - root - INFO - async_main:14 - grag.py: initalizing stores
-2025-02-13 22:09:51,905 - root - INFO - initialize_stores:64 - VectorStoreHandler.initialize_stores called
-2025-02-13 22:09:51,905 - root - INFO - initialize_doc_vectorstore:115 - VectorStoreHandler.initialize_doc_vectorstore called
-2025-02-13 22:09:51,915 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2025-02-13 22:09:52,399 - chromadb.config - DEBUG - start:337 - Starting component System
-2025-02-13 22:09:52,400 - chromadb.config - DEBUG - start:337 - Starting component Posthog
-2025-02-13 22:09:52,400 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
-2025-02-13 22:09:52,400 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
-2025-02-13 22:09:52,402 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
-2025-02-13 22:09:52,402 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
-2025-02-13 22:09:52,402 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
-2025-02-13 22:09:52,402 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
-2025-02-13 22:09:52,403 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
-2025-02-13 22:09:52,406 - chromadb.api.segment - DEBUG - create_collection:259 - Collection rag-chroma already exists, returning existing collection.
-2025-02-13 22:09:52,406 - root - INFO - initialize_doc_vectorstore:123 - Successfully loaded existing documentation vector store
-2025-02-13 22:09:52,406 - root - INFO - initialize_stores:67 - doc_vectorstore successfully initalzied
-2025-02-13 22:09:52,406 - root - INFO - initialize_code_vectorstore:81 - VectorStoreHandler.initialize_code_vectorstore called
-2025-02-13 22:09:52,407 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2025-02-13 22:09:52,408 - chromadb.config - DEBUG - start:337 - Starting component System
-2025-02-13 22:09:52,409 - chromadb.config - DEBUG - start:337 - Starting component Posthog
-2025-02-13 22:09:52,409 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
-2025-02-13 22:09:52,409 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
-2025-02-13 22:09:52,412 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
-2025-02-13 22:09:52,412 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
-2025-02-13 22:09:52,413 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
-2025-02-13 22:09:52,413 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
-2025-02-13 22:09:52,413 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
-2025-02-13 22:09:52,416 - chromadb.api.segment - DEBUG - create_collection:259 - Collection generated-code already exists, returning existing collection.
-2025-02-13 22:09:52,416 - root - INFO - initialize_code_vectorstore:89 - Successfully loaded existing code vector store
-2025-02-13 22:09:52,416 - root - INFO - initialize_stores:69 - code_vectorestore successfully intialized
-2025-02-13 22:09:52,417 - root - INFO - __init__:41 - EnhancedStrategyTester.__init__ called
-2025-02-13 22:09:52,417 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
-2025-02-13 22:09:52,417 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-02-13 22:34:18,707 - matplotlib - DEBUG - wrapper:342 - matplotlib data path: /home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/matplotlib/mpl-data
+2025-02-13 22:34:18,715 - matplotlib - DEBUG - wrapper:342 - CONFIGDIR=/home/azoroth/.config/matplotlib
+2025-02-13 22:34:18,717 - matplotlib - DEBUG - <module>:1557 - interactive is False
+2025-02-13 22:34:18,719 - matplotlib - DEBUG - <module>:1558 - platform is linux
+2025-02-13 22:34:18,832 - matplotlib - DEBUG - wrapper:342 - CACHEDIR=/home/azoroth/.cache/matplotlib
+2025-02-13 22:34:19,164 - asyncio - DEBUG - __init__:64 - Using selector: EpollSelector
+2025-02-13 22:34:19,165 - root - INFO - __init__:56 - VectorStoreHandler.__init__ called
+2025-02-13 22:34:22,604 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
+2025-02-13 22:34:22,604 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-02-13 22:34:24,294 - root - INFO - async_main:14 - grag.py: initalizing stores
+2025-02-13 22:34:24,295 - root - INFO - initialize_stores:64 - VectorStoreHandler.initialize_stores called
+2025-02-13 22:34:24,295 - root - INFO - initialize_doc_vectorstore:115 - VectorStoreHandler.initialize_doc_vectorstore called
+2025-02-13 22:34:24,320 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component System
+2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component Posthog
+2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
+2025-02-13 22:34:24,913 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
+2025-02-13 22:34:24,916 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
+2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
+2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
+2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
+2025-02-13 22:34:24,917 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
+2025-02-13 22:34:24,921 - chromadb.api.segment - DEBUG - create_collection:259 - Collection rag-chroma already exists, returning existing collection.
+2025-02-13 22:34:24,922 - root - INFO - initialize_doc_vectorstore:123 - Successfully loaded existing documentation vector store
+2025-02-13 22:34:24,922 - root - INFO - initialize_stores:67 - doc_vectorstore successfully initalzied
+2025-02-13 22:34:24,922 - root - INFO - initialize_code_vectorstore:81 - VectorStoreHandler.initialize_code_vectorstore called
+2025-02-13 22:34:24,923 - chromadb.telemetry.product.posthog - INFO - __init__:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-02-13 22:34:24,924 - chromadb.config - DEBUG - start:337 - Starting component System
+2025-02-13 22:34:24,925 - chromadb.config - DEBUG - start:337 - Starting component Posthog
+2025-02-13 22:34:24,925 - chromadb.config - DEBUG - start:337 - Starting component OpenTelemetryClient
+2025-02-13 22:34:24,925 - chromadb.config - DEBUG - start:337 - Starting component SqliteDB
+2025-02-13 22:34:24,927 - chromadb.config - DEBUG - start:337 - Starting component SimpleQuotaEnforcer
+2025-02-13 22:34:24,927 - chromadb.config - DEBUG - start:337 - Starting component SimpleRateLimitEnforcer
+2025-02-13 22:34:24,928 - chromadb.config - DEBUG - start:337 - Starting component LocalSegmentManager
+2025-02-13 22:34:24,928 - chromadb.config - DEBUG - start:337 - Starting component LocalExecutor
+2025-02-13 22:34:24,928 - chromadb.config - DEBUG - start:337 - Starting component SegmentAPI
+2025-02-13 22:34:24,931 - chromadb.api.segment - DEBUG - create_collection:259 - Collection generated-code already exists, returning existing collection.
+2025-02-13 22:34:24,932 - root - INFO - initialize_code_vectorstore:89 - Successfully loaded existing code vector store
+2025-02-13 22:34:24,932 - root - INFO - initialize_stores:69 - code_vectorestore successfully intialized
+2025-02-13 22:34:24,932 - root - INFO - __init__:41 - EnhancedStrategyTester.__init__ called
+2025-02-13 22:34:24,933 - sentence_transformers.SentenceTransformer - INFO - __init__:210 - Use pytorch device_name: cpu
+2025-02-13 22:34:24,933 - sentence_transformers.SentenceTransformer - INFO - __init__:218 - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
 Type of initial_batch_number: <class 'int'>, Value: 1
 /home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/components/chatbot.py:282: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, but this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
   warnings.warn(
 * Running on local URL:  http://0.0.0.0:8000
 
 To create a public link, set `share=True` in `launch()`.
-2025-02-13 22:09:59,838 - matplotlib.pyplot - DEBUG - switch_backend:497 - Loaded backend agg version v2.2.
-2025-02-13 22:09:59,838 - root - INFO - initialize_rl_agent:30 - Initializing RL Agent with model: model='qwen2.5-coder:0.5b' base_url='http://127.0.0.1:11434', state_dim: 384, action_dim: 2, learning_rate: 0.001, batch_number: 1
-2025-02-13 22:09:59,839 - root - INFO - __init__:232 - RLAgent.__init__ called
-2025-02-13 22:09:59,839 - root - INFO - __init__:132 - PPOAlgorithm.__init__ called
-2025-02-13 22:09:59,839 - root - INFO - __init__:68 - ActorNetwork.__init__ called
-2025-02-13 22:09:59,841 - root - INFO - __init__:101 - CriticNetwork.__init__ called
-2025-02-13 22:09:59,843 - root - INFO - __init__:31 - PPOMemory.__init__ called
-2025-02-13 22:10:24,168 - root - INFO - sync_process_input:148 - Button 'Submit' clicked! Calling sync_process_input with question: Create a pinescript v6 indicator that uses ta.sma and ta.rsi and plot to the chart
-2025-02-13 22:10:24,168 - root - INFO - sync_process_input:149 - sync_process_input - Input q type: <class 'str'>
-2025-02-13 22:10:24,169 - root - INFO - process_input:34 - process_input called with question: Create a pinescript v6 indicator that uses ta.sma and ta.rsi and plot to the chart
-2025-02-13 22:10:24,169 - root - INFO - process_input:35 - process_input - Input question type: <class 'str'>
-2025-02-13 22:10:24,170 - root - INFO - ensure_stores_initialized:363 - VectorStoreHandler.ensure_stores_initialized called
-2025-02-13 22:10:24,170 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
-2025-02-13 22:10:24,170 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
+2025-02-13 22:34:30,058 - matplotlib.pyplot - DEBUG - switch_backend:497 - Loaded backend agg version v2.2.
+2025-02-13 22:34:30,059 - root - INFO - initialize_rl_agent:30 - Initializing RL Agent with model: model='qwen2.5-coder:0.5b' base_url='http://127.0.0.1:11434', state_dim: 384, action_dim: 2, learning_rate: 0.001, batch_number: 1
+2025-02-13 22:34:30,059 - root - INFO - __init__:233 - RLAgent.__init__ called
+2025-02-13 22:34:30,060 - root - INFO - __init__:133 - PPOAlgorithm.__init__ called
+2025-02-13 22:34:30,060 - root - INFO - __init__:69 - ActorNetwork.__init__ called
+2025-02-13 22:34:30,064 - root - INFO - __init__:102 - CriticNetwork.__init__ called
+2025-02-13 22:34:30,067 - root - INFO - __init__:32 - PPOMemory.__init__ called
+2025-02-13 22:34:44,277 - root - INFO - sync_process_input:149 - Button 'Submit' clicked! Calling sync_process_input with question: Create a pinescript v6 strategy
+2025-02-13 22:34:44,279 - root - INFO - sync_process_input:150 - sync_process_input - Input q type: <class 'str'>
+2025-02-13 22:34:44,280 - root - INFO - process_input:34 - process_input called with question: Create a pinescript v6 strategy
+2025-02-13 22:34:44,280 - root - INFO - process_input:35 - process_input - Input question type: <class 'str'>
+2025-02-13 22:34:44,280 - root - INFO - ensure_stores_initialized:363 - VectorStoreHandler.ensure_stores_initialized called
+2025-02-13 22:34:44,281 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
+2025-02-13 22:34:44,281 - root - INFO - are_stores_initialized:374 - VectorStoreHandler.are_stores_initialized called
+/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py:49: LangChainDeprecationWarning: The method `BaseRetriever.aget_relevant_documents` was deprecated in langchain-core 0.1.46 and will be removed in 1.0. Use :meth:`~ainvoke` instead.
+  docs = await doc_retriever.aget_relevant_documents(question, k=5)
+2025-02-13 22:34:44,347 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
+2025-02-13 22:34:44,439 - root - INFO - generate_code:323 - RLAgent.generate_code called
+2025-02-13 22:34:44,439 - root - INFO - get_state:289 - RLAgent.get_state called
+2025-02-13 22:34:44,439 - root - INFO - get_state:290 - get_state - START: Query: Create a pinescript v6 strategy
+2025-02-13 22:34:44,440 - root - INFO - embed_query:276 - RLAgent.embed_query called
+2025-02-13 22:34:44,479 - chromadb.config - DEBUG - start:337 - Starting component PersistentLocalHnswSegment
+2025-02-13 22:34:44,483 - root - INFO - get_state:319 - get_state - END: State: {
+  "query": "Create a pinescript v6 strategy",
+  "query_embedding_length": 384,
+  "code_context_length": 0,
+  "num_retrieved_codes": 0
+}
+2025-02-13 22:34:44,484 - root - INFO - choose_action:342 - RLAgent.choose_action called
+2025-02-13 22:34:44,484 - root - INFO - choose_action:161 - PPOAlgorithm.choose_action called
+2025-02-13 22:34:44,484 - root - INFO - forward:86 - ActorNetwork.forward called
+2025-02-13 22:34:44,485 - root - INFO - forward:118 - CriticNetwork.forward called
+2025-02-13 22:34:44,486 - root - INFO - generate_code:326 - Chosen action: 0, Probability: -0.6687655448913574, Value: -0.015997178852558136
+2025-02-13 22:34:44,486 - root - ERROR - process_input:56 - Error generating code with RL agent: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
+Traceback (most recent call last):
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 52, in process_input
+    generated_code = await self.rl_agent.generate_code(question)  # Use RL agent
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 328, in generate_code
+    context = await self.vector_store.get_relevant_documents(question)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
+2025-02-13 22:34:59,984 - root - INFO - sync_test_strategy:170 - Button 'Test Strategy' clicked! Calling sync_test_strategy
+2025-02-13 22:34:59,984 - root - INFO - test_strategy:71 - test_strategy called
+2025-02-13 22:35:07,782 - root - INFO - sync_train_rl_agent:174 - Button 'Train RL Agent' clicked! Calling sync_train_rl_agent with num_batches: 5, episodes_per_batch: 2, batch_number: 1
+2025-02-13 22:35:07,783 - root - INFO - train_rl_agent:87 - train_rl_agent called with num_batches: 5, episodes_per_batch: 2, batch_number: 1
+2025-02-13 22:35:07,783 - root - INFO - train_loop:361 - RLAgent.train_loop called
+2025-02-13 22:35:07,783 - root - INFO - generate_code:323 - RLAgent.generate_code called
+2025-02-13 22:35:07,783 - root - INFO - get_state:289 - RLAgent.get_state called
+2025-02-13 22:35:07,783 - root - INFO - get_state:290 - get_state - START: Query: Generate a Pine Script strategy for batch 1, episode 1
+2025-02-13 22:35:07,784 - root - INFO - embed_query:276 - RLAgent.embed_query called
+2025-02-13 22:35:07,837 - root - INFO - get_state:319 - get_state - END: State: {
+  "query": "Generate a Pine Script strategy for batch 1, episo...",
+  "query_embedding_length": 384,
+  "code_context_length": 0,
+  "num_retrieved_codes": 0
+}
+2025-02-13 22:35:07,837 - root - INFO - choose_action:342 - RLAgent.choose_action called
+2025-02-13 22:35:07,837 - root - INFO - choose_action:161 - PPOAlgorithm.choose_action called
+2025-02-13 22:35:07,838 - root - INFO - forward:86 - ActorNetwork.forward called
+2025-02-13 22:35:07,838 - root - INFO - forward:118 - CriticNetwork.forward called
+2025-02-13 22:35:07,839 - root - INFO - generate_code:326 - Chosen action: 1, Probability: -0.7160099744796753, Value: -0.017917852848768234
+2025-02-13 22:35:07,840 - root - ERROR - train_loop:379 - Error during training episode: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
+Traceback (most recent call last):
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 373, in train_loop
+    generated_code = await self.generate_code(question)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 328, in generate_code
+    context = await self.vector_store.get_relevant_documents(question)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreHandler' object has no attribute 'get_relevant_documents'
+2025-02-13 22:35:07,841 - root - INFO - learn:174 - PPOAlgorithm.learn called
+2025-02-13 22:35:07,841 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,842 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,842 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,842 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,842 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,842 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,843 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,843 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,843 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,844 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,844 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,845 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,845 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,845 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,845 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,846 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,846 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,846 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,846 - root - INFO - generate_batches:42 - PPOMemory.generate_batches called
+2025-02-13 22:35:07,846 - root - WARNING - learn:181 - Reward array is empty, skipping learn step for this batch.
+2025-02-13 22:35:07,846 - root - INFO - clear:59 - PPOMemory.clear called
 Traceback (most recent call last):
   File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/queueing.py", line 625, in process_events
     response = await route_utils.call_process_api(
@@ -101,13 +180,14 @@ Traceback (most recent call last):
     result = context.run(func, *args)
   File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/gradio/utils.py", line 883, in wrapper
     response = f(*args, **kwargs)
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 153, in sync_process_input
-    return loop.run_until_complete(self.process_input(q, history))
-           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 177, in sync_train_rl_agent
+    return loop.run_until_complete(self.train_rl_agent(int(num_batches), int(episodes_per_batch), int(batch_number)))  # Pass num_batches and episodes_per_batch, convert to int - ENSURE ALL ARE INT
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
-  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 49, in process_input
-    docs = await doc_retriever.as_retriever(question, k=5)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/azoroth/projects/rag/ChatRag/venv/lib/python3.13/site-packages/pydantic/main.py", line 891, in __getattr__
-    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
-AttributeError: 'VectorStoreRetriever' object has no attribute 'as_retriever'
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/gradio_interface.py", line 89, in train_rl_agent
+    self.episode_rewards_history, self.actor_losses_history, self.critic_losses_history = await self.rl_agent.train_loop(num_batches=int(num_batches), episodes_per_batch=int(episodes_per_batch))  # Call train_loop, ensure num_batches and episodes_per_batch are int
+                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azoroth/projects/rag/ChatRag/GRADIO/new/rl_agent.py", line 391, in train_loop
+    f"Reward: {reward:.2f}, Actor Loss: {sum(actor_losses) / len(actor_losses):.3f}, "
+                                         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero

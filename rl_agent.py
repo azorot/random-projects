@@ -19,6 +19,7 @@ import time
 from torch.optim.lr_scheduler import CosineAnnealingLR  # Import LR scheduler
 from selenium_handler2 import CompilationError
 import logging
+import json
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -308,7 +309,14 @@ Query: {question} (Question: {question} - Carefully analyze the provided documen
             "code_context": code_context,
             "num_retrieved_codes": num_retrieved_codes,
         }
-        logger.info(f"get_state - END: State: {state}")
+        # Create a truncated version of the state for logging
+        log_state = {
+            "query": query[:50] + "..." if len(query) > 50 else query,
+            "query_embedding_length": len(query_embedding),
+            "code_context_length": len(code_context),
+            "num_retrieved_codes": num_retrieved_codes
+        }
+        logger.info(f"get_state - END: State: {json.dumps(log_state, indent=2)}")
         return state
 
     async def generate_code(self, question: str):
@@ -317,7 +325,7 @@ Query: {question} (Question: {question} - Carefully analyze the provided documen
         action, prob, value = self.choose_action(state["query_embedding"])  # Action based on query embedding
         logger.info(f"Chosen action: {action}, Probability: {prob}, Value: {value}")
         # Retrieve context and code context
-        context = await self.vector_store.as_retriever(question)
+        context = await self.vector_store.get_relevant_documents(question)
         code_context = state["code_context"]
         # Prepare input for the after_rag_chain
         input_data = {"context": context, "code_context": code_context, "question": question}
@@ -328,6 +336,7 @@ Query: {question} (Question: {question} - Carefully analyze the provided documen
         logger.info(f"generate_code - Reward: {reward}")
         self.remember(state["query_embedding"], action, prob, value, reward)  # Store experience
         return generated_code
+
 
     def choose_action(self, state):
         logging.info("RLAgent.choose_action called")
