@@ -317,7 +317,7 @@ Query: {question} (Question: {question} - Carefully analyze the provided documen
         action, prob, value = self.choose_action(state["query_embedding"])  # Action based on query embedding
         logger.info(f"Chosen action: {action}, Probability: {prob}, Value: {value}")
         # Retrieve context and code context
-        context = await self.vector_store.get_relevant_documents(question)
+        context = await self.vector_store.as_retriever(question)
         code_context = state["code_context"]
         # Prepare input for the after_rag_chain
         input_data = {"context": context, "code_context": code_context, "question": question}

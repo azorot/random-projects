@@ -46,7 +46,7 @@ class GradioInterface:
             context = ""  # Or some default value
             docs = []  # Initialize docs to an empty list
         else:
-            docs = await doc_retriever.aget_relevant_documents(question, k=5)
+            docs = await doc_retriever.as_retriever(question, k=5)
             context = "\n".join(doc.page_content for doc in docs) if docs else ""  # handle empty docs
         try:
             generated_code = await self.rl_agent.generate_code(question)  # Use RL agent
