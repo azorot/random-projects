@@ -1,0 +1,111 @@
+//@version=5
+strategy(title="Basic Pine Script V6 Strategy", overlay=true)
+
+// Custom function to calculate RSI
+RSI = ta.rsi(close, timeperiod=14, fillna=false)
+MACD = ta.momentum(macdPeriod=12, signalPeriod=9)
+SMA10 = ta.sma(close, timeperiod=10)
+SMA5 = ta.sma(close, timeperiod=5)
+
+// Custom function to calculate moving average
+EMA = ta.ema(close, timeperiod=20)
+
+// Define technical indicators
+RSI = RSI
+MACD = MACD
+SMA10 = SMA10
+SMA5 = SMA5
+
+// Calculate buy signal
+buy_signal = if (RSI < 30 and MACD > 7.0 and SMA10 > EMA, true, false)
+
+// Calculate sell signal
+sell_signal = if (RSI > 70 and MACD < 7.0 and SMA10 < EMA, true, false)
+
+// Define buy position size
+buy_position_size = 1
+
+// Define sell position size
+sell_position_size = -1
+
+// Initialize position
+position_status = uninitialized
+
+// Initialize position with initial balance
+initial_balance = strategy.broker.availableBalance * 0.95
+
+// Loop through all bars
+for i in range(1, barstacks.length)
+begin
+    // Check if the current close is higher than the previous one
+    if (close > previous close)
+    begin
+        // Calculate buy signal based on RSI and MACD
+        if (buy_signal)
+        {
+            position_status = "Buy";
+            trade(price=previous close, type=long);
+        }
+        
+        // Calculate sell signal based on RSI and MACD
+        if (sell_signal)
+        {
+            position_status = "Sell";
+            trade(price=close, type=sell);
+        }
+    end
+    
+    // Calculate buy price using RSI and MACD
+    current_rsi = ta.rsi(close, timeperiod=14)
+    current_macd = ta.momentum(macdPeriod=12, signalPeriod=9)
+    
+    if (current_rsi < 30)
+    begin
+        current_buy_price = SMA10[i] * 1.05 + SMA5[i] * 0.75
+    end
+    
+    // Calculate sell price using RSI and MACD
+    if (current_rsi > 70)
+    begin
+        current_sell_price = SMA10[i] * 0.95 + SMA5[i] * 0.75
+    end
+    
+    // Check for buy position
+    if (position_status == "Buy")
+    begin
+        // Calculate potential profit
+        potential_profit = 2 * closingPrice - current_buy_price
+        
+        // Update trade size based on balance and risk tolerance
+        potential_profit *= strategy.broker.availableBalance / initial_balance
+        potential_profit = max(potential_profit, 0)
+        
+        // Perform trade if sufficient funds and risk tolerance is met
+        if (potential_profit > 0 and current_buy_price < strategy.broker.entryPrice - 10 * close)
+        begin
+            strategy.entry("Buy", "Long", initial_balance)
+        end
+    end
+    
+    // Check for sell position
+    if (position_status == "Sell")
+    begin
+        // Calculate potential loss
+        potential_loss = current_sell_price - closingPrice
+        
+        // Update trade size based on balance and risk tolerance
+        potential_loss *= strategy.broker.availableBalance / initial_balance
+        potential_loss = max(potential_loss, 0)
+        
+        // Perform trade if sufficient funds and risk tolerance is met
+        if (potential_loss < 0 and current_sell_price > strategy.broker.exitPrice + 10 * close)
+        begin
+            strategy.entry("Sell", "Short", initial_balance)
+        end
+    end
+    
+    previous_close = close
+end
+
+// Exit the strategy after processing all bars
+exit()

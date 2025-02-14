@@ -1,0 +1,42 @@
+//@version=6
+
+strategy(name="Basic Pine Script v6 Strategy", overlay=true)
+
+// Technical indicators
+SMA = ta.sma(close, 10)
+MACD = ta.mavg(sma, 26)
+RSI = ta.rsi(close, length=9)
+ATR = ta.atr(length=14)
+
+// Position sizing based on account balance and risk tolerance
+balance = strategy.balance_percent()
+risk_tolerance = strategy.trading_equity_level()
+
+if (balance >= risk_tolerance * 2) {
+    position_size = balance / risk_tolerance
+} else {
+    position_size = 0.5 * balance
+
+    if (position_size > 1) {
+        position_size = 1
+    }
+}
+
+// Entry condition: moving average crosses above SMA
+entry_condition = ta.crossover(macd, sma)
+
+// Exit condition: moving average crosses below SMA
+exit_condition = ta.crossunder(macd, sma)
+
+// Long position
+if (entry_condition && close > ma) {
+    strategy.entry("Long", long)
+}
+
+// Short position
+if (exit_condition && close < ma) {
+    strategy.exit("Short")
+}
+
+// Display results
+strategy.print("Position Size:", position_size)
