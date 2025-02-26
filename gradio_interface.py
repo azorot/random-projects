@@ -146,7 +146,7 @@ class GradioInterface:
                     strategy_output = gr.Textbox(label="Strategy Test Output", lines=5)
 
                     # RL Training controls - Modified inputs
-                    num_episodes_input = gr.Number(value=100, label="Total Episodes to Train (per Batch - now irrelevant)") # Changed label, but input is now episodes_per_batch
+                    # num_episodes_input = gr.Number(value=100, label="Total Episodes to Train (per Batch - now irrelevant)") # Changed label, but input is now episodes_per_batch
                     train_button = gr.Button("Train RL Agent")
                     train_output = gr.Textbox(label="RL Training Output", lines=2)
 
